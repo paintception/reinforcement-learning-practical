@@ -1,5 +1,5 @@
 \babel@toc {english}{}
 \beamer@sectionintoc {1}{Course Information}{3}{0}{1}
 \beamer@sectionintoc {2}{What is Reinforcement Learning}{8}{0}{2}
-\beamer@sectionintoc {3}{Markov Decision Processes}{9}{0}{3}
-\beamer@sectionintoc {4}{Value Functions}{10}{0}{4}
+\beamer@sectionintoc {3}{Markov Decision Processes}{13}{0}{3}
+\beamer@sectionintoc {4}{Value Functions}{14}{0}{4}

@@ -10,9 +10,10 @@
 \usetikzlibrary{positioning,angles,quotes}
 \usepackage{url}
 \usepackage{graphicx}
-\usepackage{cmbright}
 
 
+
+\usepgfplotslibrary{groupplots}
 \usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
 \usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
 \usepackage{tikz}
@@ -20,7 +21,7 @@
 \usetikzlibrary{positioning}
 \usepackage{pgfplots}
 
-%\input{epgfplotslibrary{groupplots}
+\input{epgfplotslibrary{groupplots}
 \usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
 \usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
 
@@ -123,61 +124,12 @@
 %============================================================================
 \begin{frame}{Reinforcement Learning}
 	\section{What is Reinforcement Learning}
-	
-	Machine Learning is typically divided into three branches:
-
-	\begin{enumerate}
-		\item Supervised Learning: learning from \textcolor{RoyalBlue}{labeled} data
-		\item Unsupervised Learning: learning from \textcolor{RoyalBlue}{unlabeled} data
-		\item Reinforcement Learning: learning from \textcolor{RoyalBlue}{experience}
-	\end{enumerate}
-
-\end{frame}
-
-
-\begin{frame}{Reinforcement Learning}
-	A reminder of \textcolor{RoyalBlue}{supervised learning}:
-	\begin{itemize}
-		\item input space: $\mathcal{X}$
-		\item output space: $\mathcal{Y}$
-		\item probability distribution $p(x,y)$
-	\end{itemize}
-
-	\begin{block}{The goal}
-		We want to build a function $f:\mathcal{X}\rightarrow\mathcal{Y}$ that minimizes the \textcolor{Maroon}{expectation} of a given loss $\ell$
-		\begin{align*}
-			\mathds{E}_{(x,y)\sim p(x,y)}\{\ell(y,f(x)) \}
-		\end{align*}
-		through leaning samples $LS=\{(x_i,y_i)|i=1,...,N\}$ of input-ouput pairs drawn from $p(x,y)$.
-	\end{block}
-
-\end{frame}
-
-\begin{frame}{Reinforcement Learning}
-	Supervised learning is therefore:
-	\begin{itemize}
-		\item a learning paradigm which is \textcolor{Maroon}{static}
-		\item \textcolor{Maroon}{no interaction} happens between the learner and $p(x,y)$
-		\item Assumes we have access to a \textcolor{Maroon}{knowledgable supervisor}
-	\end{itemize}
-
-	\bigskip
-	In Reinforcement Learning however ...
-
-\end{frame}
-
-\begin{frame}{Reinforcement Learning}
-	\begin{itemize}
-		\item We would like to learn how to \textcolor{RoyalBlue}{interact} with an environment 
-		\item We do not assume any sort of supervision but only a \textcolor{RoyalBlue}{reward} signal
-		\item The component of \textcolor{RoyalBlue}{time} plays a crucial role
-		\item The learning process is therefore \textcolor{RoyalBlue}{dynamic} and \textcolor{Maroon}{uncertain} 
-	\end{itemize}
 
 \end{frame}
 
 \begin{frame}{Reinforcement Learning}
 	\input{./images/rl_loop.tex}
+	
 
 \end{frame}
 
@@ -191,13 +143,7 @@
 \begin{frame}{Markov Decision Processes}
 	\section{Markov Decision Processes}
 
-	
-
-
 \end{frame}
-
-
-
 %============================================================================
 
 %============================================================================

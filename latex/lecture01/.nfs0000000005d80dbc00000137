@@ -163,26 +163,18 @@
 
 	\bigskip
 	In Reinforcement Learning however ...
-
 \end{frame}
 
-\begin{frame}{Reinforcement Learning}
+\end{frame}{Reinforcement Learning}
 	\begin{itemize}
 		\item We would like to learn how to \textcolor{RoyalBlue}{interact} with an environment 
 		\item We do not assume any sort of supervision but only a \textcolor{RoyalBlue}{reward} signal
 		\item The component of \textcolor{RoyalBlue}{time} plays a crucial role
-		\item The learning process is therefore \textcolor{RoyalBlue}{dynamic} and \textcolor{Maroon}{uncertain} 
+		\item The learning process is therefore \textcolor{RoyalBlue}{dynamic} 
 	\end{itemize}
+\begin{frame}
 
 \end{frame}
-
-\begin{frame}{Reinforcement Learning}
-	\input{./images/rl_loop.tex}
-
-\end{frame}
-
-
-
 
 
 %============================================================================
@@ -193,6 +185,12 @@
 
 	
 
+
+\end{frame}
+
+
+\begin{frame}{Reinforcement Learning}
+	\input{./images/rl_loop.tex}
 
 \end{frame}
 

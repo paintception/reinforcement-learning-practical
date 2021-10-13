@@ -177,7 +177,15 @@
 \end{frame}
 
 \begin{frame}{Reinforcement Learning}
+
+	Every Reinforcement Learning problem can be visualized through the \textcolor{Agent-Environment} interface
+	\begin{itemize}
+		\item The \textcolor{RoyalBlue}{agent}: also called the learner or the decision maker
+		\item The \textcolor{RoyalBlue}{environment}: everything outside the agent
+	\end{itemize}
+
 	\input{./images/rl_loop.tex}
+
 
 \end{frame}
 
