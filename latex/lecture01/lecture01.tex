@@ -172,42 +172,228 @@
 		\item We do not assume any sort of supervision but only a \textcolor{RoyalBlue}{reward} signal
 		\item The component of \textcolor{RoyalBlue}{time} plays a crucial role
 		\item The learning process is therefore \textcolor{RoyalBlue}{dynamic} and \textcolor{Maroon}{uncertain} 
+		\item Agents are \textcolor{RoyalBlue}{goal oriented}
 	\end{itemize}
 
 \end{frame}
 
 \begin{frame}{Reinforcement Learning}
 	\input{./images/rl_loop.tex}
+\end{frame}
 
+\begin{frame}{Reinforcement Learning}
 \end{frame}
 
 
+\begin{frame}{Reinforcement Learning}
+	The mathematical framework of Reinforcement Learning:
+	\begin{itemize}
+		\item a set of possible \textcolor{RoyalBlue}{states} $\mathcal{S}$ where $s_t\in\mathcal{S}$ is the current state
+		\item a set of possible \textcolor{RoyalBlue}{actions} $\mathcal{A}$ where $a_t\in\mathcal{A}$ is the current action
+		\item a \textcolor{RoyalBlue}{transition function} $\mathcal{P}:\mathcal{S}\times\mathcal{A}\times\mathcal{S}\rightarrow[0,1]$
+		\item a \textcolor{RoyalBlue}{reward function} $\Re:\mathcal{S}\times\mathcal{A}\times\mathcal{S}\rightarrow \mathbb{R}$ which returns $r_t$
+	\end{itemize}
 
+	\begin{block}{Markov Decision Processes (MDPs)}
+		These components allows us to define a \textcolor{Maroon}{Markov Decision Process} 
+		\centering $\mathcal{M}=\langle \mathcal{S},\mathcal{A},\mathcal{P},r\rangle$
+	\end{block}
+
+\end{frame}
 
 
 %============================================================================
 
 %============================================================================
 \begin{frame}{Markov Decision Processes}
-	\section{Markov Decision Processes}
+	\section{Mathematical Framework}
+	What is so special about MDPs?
+	\begin{block}{Markov Property}
+		In a Markovian \textcolor{RoyalBlue}{environment} the conditional distribution of the next state of the process only depends from the current state of the process. 		\centering  	
+		\begin{align*}
+		p(s_{t+1}|s_t, a_t, s_{t-1}, a_{t-1}, \ldots) = p(s_{t+1} | s_t, a_t).
+		\end{align*}
+	\end{block}
 
+	Interestingly, the same property also holds for the \textcolor{RoyalBlue}{reward} that the agent will get: 
+	\begin{align*}
+			p(r_t| s_t, a_t, \ldots, s_1, a_1) = p(r_t|s_t,a_t).
+	\end{align*}
+\end{frame}
+
+\begin{frame}{Markov Decision Processes}
+	\textcolor{Maroon}{How} does an agent \textcolor{RoyalBlue}{interact} with its environment?
 	
+	\begin{block}{Policy $\pi$}		
+		Through a probability distribution over $a \in \mathcal{A}(s)$ for each $s \in \mathcal{S}$:
+		\centering
+		\begin{align*}
+			\pi(a|s) = \text{Pr}\; \{a_t = a | s_t = s\}, \; \text{for all}\; s \in \mathcal{S}\; \text{and}\; a\ \in \mathcal{A}. 
+		\end{align*}
 
+	\end{block}
+	
+	which more simply can be seen as a \textcolor{RoyalBlue}{mapping} from states to actions that determines the behaviour of the agent: \\ 
+	\centering $\pi: \mathcal{S}\rightarrow \mathcal{A}$ \\	
+\end{frame}
 
+\begin{frame}{Episodes}
+	Once we have policy $\pi$ we can let the agent interact with the environment, which results in an \textcolor{RoyalBlue}{episode}:
+	\centering
+	\begin{align*}
+		\langle(s_t,a_t,r_t,s_{t+1})\rangle, t=0,\ldots,T-1
+	\end{align*}
+	where $T$ is a random variable defining the \textcolor{RoyalBlue}{length} of the episode \\
+
+	\bigskip
+	One $\langle s_t,a_t,r_t,s_{t+1} \rangle$ is called a \textcolor{RoyalBlue}{trajectory} $\tau$
 \end{frame}
 
 
 
+\begin{frame}{Goals and Returns}
+	\textcolor{Maroon}{Why} do we want an agent to interact with the environment?
+	\begin{itemize}
+		\item We would like it to \textcolor{RoyalBlue}{master} a certain task
+		\item Ideally it could \textcolor{RoyalBlue}{discover} solutions that are unknown to us
+		\item \textcolor{RoyalBlue}{Biologically plausible} form of learning
+	\end{itemize}
+
+	How do we formalize this mathematically?
+
+	\begin{block}{Goal}
+		In its easiest form we can define such goal as \textcolor{RoyalBlue}{maximizing} the sequence of $r_t$ returned by $\Re$
+		\begin{align*}
+			G_t = r_t + r_{t+1} + r_{t+2}, \ldots, r_T.
+		\end{align*}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}{Goals and Returns}
+	\textcolor{Maroon}{However} the definition of $G_t$ has some limitations:
+	\begin{itemize}
+		\item Assumes that episodes are finite 
+		\item Many real world applications are instead continuous, therefore $T=\infty$
+		\item As a result $G_t$ can be infinite as well
+	\end{itemize}
+
+	\bigskip
+
+	We need a slightly more complex definition of $G_t$ based on the concept of \textcolor{RoyalBlue}{discounting} modeled by $\gamma$  
+
+\end{frame}
+
+\begin{frame}{Goals and Returns}
+	\begin{block}{Discounted Return}
+  	 $\gamma$ allows us to define the notion of \textcolor{RoyalBlue}{discounted cumulative reward}	
+		\begin{align*}
+			G_t & = r_t+\gamma r_{t+1}, \gamma^{2} r_{t+2} + ... \\
+				& = \sum_{k=0}^{\infty}\gamma^{k} r_{t+k+1}.
+		\end{align*}
+
+	\end{block}
+
+	\begin{itemize}
+		\item $\gamma$ determines the value of future rewards as $0\leq\gamma\leq1$
+		\item makes $G_t$ finite as long as $\gamma < 1$ and $r_t$ is constant
+	\end{itemize}
+	
+	\centering
+	\begin{align*}
+		G_t = \sum_{k=0}^{\infty}\gamma^{k} = \frac{1}{1-\gamma}
+	\end{align*}
+
+\end{frame}
+
+
 %============================================================================
 
 %============================================================================
-\begin{frame}{Value Function}
+\begin{frame}{Value Functions}
 	\section{Value Functions}
 
+	One of the most \textcolor{Maroon}{concepts} of Reinforcement Learning: \textcolor{RoyalBlue}{value}
+	\begin{itemize}
+		\item directly connected to the notion of $G_t$
+		\item we can define the value of a state $s$, of an action $a$, and even of a policy $\pi$
+		\item allows the introduction of \textcolor{RoyalBlue}{value functions}
+			\begin{itemize}
+				\item state-value function $V(s)$
+				\item state-action value function $Q(s,a)$
+			\end{itemize}
+	\end{itemize}
 \end{frame}
+
+\begin{frame}{Value Functions}
+	\begin{block}{The state-value function $V^{\pi}(s)$}
+		\begin{align*}
+			V^{\pi}(s) & = \mathds{E} \bigg[G_t \: \big| \: s_t=s,\pi \bigg] \\ 
+				& = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg]
+		\end{align*}
+	\end{block}
+
+	\begin{itemize}
+		\item The \textcolor{RoyalBlue}{easiest} value function to learn
+		\item Intuitively it tells us \textit{``how good/bad"} every state $s$ visited by policy $\pi$ is
+		\item This \textit{``goodness"} is expressed with respect to $G_t$
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Value Functions}
+	The state-value function is only conditioned on the states that are being visited
+	
+	\begin{block}{The state-action value function $Q^{\pi}(s,a)$}
+		\begin{align*}
+		Q^{\pi}(s,a) & = \mathds{E} \bigg[G_t \: \big| \: s_t=s, \: a_t=a,  \pi \bigg] \\ 
+			& = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s, \: a_t=a, \pi \bigg]
+		\end{align*}
+	\end{block}
+
+	\begin{itemize}
+		\item Is much more \textcolor{RoyalBlue}{informative} compared to $V^{\pi}(s)$
+		\item Intuitively tells us \textit{how good/bad} taking action $a$ in state $s$ is
+		\item Plays a crucial role in the \textcolor{RoyalBlue}{developement} of Reinforcement Learning algorithms
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Value Functions}
+	An interesting property of these value functions is that they satisfy a \textcolor{RoyalBlue}{recursive equality}
+
+		\begin{align*}
+			V^{\pi}(s) & = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
+			   & = \sum_a \pi(s,a) \sum_{s+1} p(s_{t+1}|s,a)\big[\Re(s_t, a, s_{t+1}) + \gamma V^{\pi}(s_{t+1}) \big] 
+		\end{align*}
+\end{frame}
+
+
+\begin{frame}{Value Functions}
+	An interesting property of these value functions is that they satisfy a \textcolor{RoyalBlue}{recursive equality}
+		\begin{align*}
+			\textcolor{blue}{V^{\pi}(s)} & = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
+			   & = \sum_a \pi(s,a) \sum_{s+1} p(s_{t+1}|s,a)\big[\Re(s_t, a, s_{t+1}) + \gamma \textcolor{blue}{V^{\pi}(s_{t+1}}) \big] 
+		\end{align*}
+\end{frame}
+
+
+\begin{frame}
+	An interesting property of these value functions is that they satisfy a \textcolor{RoyalBlue}{recursive equality}
+		\begin{align*}
+		\textcolor{blue}{V^{\pi}(s)} & = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
+			   & = \sum_a \pi(s,a) \sum_{s+1} p(s_{t+1}|s,a)\big[\Re(s_t, a, s_{t+1}) + \gamma \textcolor{blue}{V^{\pi}(s_{t+1}}) \big] 
+		\end{align*}
+
+	which is \textcolor{Maroon}{key} for the creation of Reinforcement Learning algorithms (Lectures 3 and 4)!
+\end{frame}
+
+
 %============================================================================
 
 
-
+\begin{frame}{Conclusions}
+	\textcolor{Maroon}{Why} is Reinforcement Learning so interesting?
+\end{frame}
 
 \end{document}
