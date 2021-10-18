@@ -5,12 +5,14 @@
 \usepackage{xmpmulti}
 \usepackage{amsmath}
 \usepackage{dsfont}
+\usepackage{multicol}
 \usepackage{tikz}
 \usepackage{eucal}
 \usetikzlibrary{positioning,angles,quotes}
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{cmbright}
+\usepackage{framed}
 
 
 \usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
@@ -31,6 +33,15 @@
 
 \definecolor{Maroon}{cmyk}{0, 0.87, 0.68, 0.32}
 \definecolor{RoyalBlue}{cmyk}{1, 0.50, 0, 0}
+\definecolor{skymagenta}{rgb}{0.81, 0.44, 0.69}
+
+\newenvironment{takeaway}[1]{%
+	\definecolor{shadecolor}{gray}{0.9}%
+		\begin{shaded}{\color{skymagenta}\noindent\textsc{#1}}\\%
+		}{%
+		\end{shaded}%
+}
+
 
 
 %%%%%% THE FOLLOWING FILE CONTAINS THE STYLE DEFINITIONS %%%%%%
@@ -378,7 +389,7 @@
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}{Value Functions}
 	An interesting property of these value functions is that they satisfy a \textcolor{RoyalBlue}{recursive equality}
 		\begin{align*}
 		\textcolor{blue}{V^{\pi}(s)} & = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
@@ -389,11 +400,58 @@
 \end{frame}
 
 
+\begin{frame}{Optimal Value Functions}
+	Solving a Reinforcement Learning problem intuitively means finding a policy $\pi$ that achieves \textcolor{RoyalBlue}{a lot of reward}:
+	\begin{itemize}
+		\item What makes a certain policy $\pi$ \textcolor{RoyalBlue}{better} than another policy $\pi^{'}$? 
+		\item How can we \textcolor{RoyalBlue}{rank} different policies?
+	\end{itemize}
+	
+	We can answer these questions thanks to the $V(s)$ and the $Q(s,a)$ functions:
+
+	\begin{block}{Optimal Policy $\pi^*$}
+		There is always one policy that is better or equal than all other policies
+	\begin{align*}
+		\pi \geq \pi^{'}\: \text{iff}\: V^{\pi}(s) \geq V^{\pi^{'}}(s) \: \text{for all}\: s\in\mathcal{S}
+	\end{align*}
+		The best possible policy is the \textcolor{RoyalBlue}{optimal policy} $\pi^{*}$
+	\end{block}
+\end{frame}
+
+
+\begin{frame}{Optimal Value Functions}
+	\begin{itemize}
+		\item How do we \textcolor{RoyalBlue}{find} the optimal policy $\pi^{*}$?
+		\item By \textcolor{RoyalBlue}{maximizing} the state-value and state-action value functions results in the \textcolor{RoyalBlue}{optimal value functions}
+	\end{itemize}
+	\begin{multicols}{2}
+		\begin{equation*}
+			V^{*}(s)=\underset{\pi}{\max}\:V^{\pi}(s)
+		\end{equation*}\break
+		\begin{equation*}
+			Q^{*}(s,a)= \underset{\pi}{\max}\:Q^{\pi}(s,a)
+		\end{equation*}
+	\end{multicols}
+
+	which, if expressed in a recursive form, result in the \textcolor{Maroon}{Bellman optimality equations} (for the coming lectures!) 
+
+\end{frame}
+
+
+
 %============================================================================
 
 
-\begin{frame}{Conclusions}
-	\textcolor{Maroon}{Why} is Reinforcement Learning so interesting?
+\begin{frame}{Final Slide!}
+	We aim to teach an agent how to \textcolor{RoyalBlue}{interact} with its environment:
+	\begin{takeaway}{Lecture Takeaway}
+		\begin{enumerate}
+			\item The environment is modelled as a Markov Decision Process $\mathcal{M}\langle \mathcal{S}, \mathcal{A}, \mathcal{P}, r \rangle$
+			\item The interaction is governed by the agent's policy $\pi$
+			\item The goal of the agent is measured wrt discounted cumulative reward $G_t$
+			\item $G_t$ allows us to quantify how good a certain state $s$ is, and how good a certain action $a$ in a certain state is: $V^\pi(s)$ and $Q^\pi(s,a)$ 
+		\end{enumerate}
+	\end{takeaway}
 \end{frame}
 
 \end{document}
