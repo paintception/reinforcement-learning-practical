@@ -108,8 +108,7 @@
 \begin{frame}{Course Information}
 	\textcolor{RoyalBlue}{Textbook}: Reinforcement Learning: An Introduction by Sutton \& Barto
 
-	\centering
-	\includegraphics[scale=0.25]{./images/sutton_pic}
+	\inculdegraphics{./Images/sutton_pic}
 
 \end{frame}
 
@@ -197,13 +196,6 @@
 \end{frame}
 
 \begin{frame}{Reinforcement Learning}
-Some examples of Reinforcement Learning:
-	\begin{itemize}
-		\item \url{https://www.youtube.com/watch?v=eG1Ed8PTJ18}
-		\item \url{https://www.youtube.com/watch?v=n2gE7n11h1Y}
-		\item \url{https://www.youtube.com/watch?v=_qLs2K4UXXk}
-	\end{itemize}
-
 \end{frame}
 
 
