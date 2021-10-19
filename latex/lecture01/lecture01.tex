@@ -149,9 +149,9 @@
 \begin{frame}{Reinforcement Learning}
 	A reminder of \textcolor{RoyalBlue}{supervised learning}:
 	\begin{itemize}
-		\item input space: $\mathcal{X}$
-		\item output space: $\mathcal{Y}$
-		\item probability distribution $p(x,y)$
+		\item Input space: $\mathcal{X}$
+		\item Output space: $\mathcal{Y}$
+		\item Probability distribution $p(x,y)$
 	\end{itemize}
 
 	\begin{block}{The goal}
@@ -167,8 +167,8 @@
 \begin{frame}{Reinforcement Learning}
 	Supervised learning is therefore:
 	\begin{itemize}
-		\item a learning paradigm which is \textcolor{Maroon}{static}
-		\item \textcolor{Maroon}{no interaction} happens between the learner and $p(x,y)$
+		\item A learning paradigm which is \textcolor{Maroon}{static}
+		\item \textcolor{Maroon}{No interaction} happens between the learner and $p(x,y)$
 		\item Assumes we have access to a \textcolor{Maroon}{knowledgable supervisor}
 	\end{itemize}
 
@@ -199,15 +199,15 @@
 \begin{frame}{Reinforcement Learning}
 	The mathematical framework of Reinforcement Learning:
 	\begin{itemize}
-		\item a set of possible \textcolor{RoyalBlue}{states} $\mathcal{S}$ where $s_t\in\mathcal{S}$ is the current state
-		\item a set of possible \textcolor{RoyalBlue}{actions} $\mathcal{A}$ where $a_t\in\mathcal{A}$ is the current action
-		\item a \textcolor{RoyalBlue}{transition function} $\mathcal{P}:\mathcal{S}\times\mathcal{A}\times\mathcal{S}\rightarrow[0,1]$
-		\item a \textcolor{RoyalBlue}{reward function} $\Re:\mathcal{S}\times\mathcal{A}\times\mathcal{S}\rightarrow \mathbb{R}$ which returns $r_t$
+		\item A set of possible \textcolor{RoyalBlue}{states} $\mathcal{S}$ where $s_t\in\mathcal{S}$ is the current state
+		\item A set of possible \textcolor{RoyalBlue}{actions} $\mathcal{A}$ where $a_t\in\mathcal{A}$ is the current action
+		\item A \textcolor{RoyalBlue}{transition function} $\mathcal{P}:\mathcal{S}\times\mathcal{A}\times\mathcal{S}\rightarrow[0,1]$
+		\item A \textcolor{RoyalBlue}{reward function} $\Re:\mathcal{S}\times\mathcal{A}\times\mathcal{S}\rightarrow \mathbb{R}$ which returns $r_t$
 	\end{itemize}
 
 	\begin{block}{Markov Decision Processes (MDPs)}
 		These components allows us to define a \textcolor{Maroon}{Markov Decision Process} 
-		\centering $\mathcal{M}=\langle \mathcal{S},\mathcal{A},\mathcal{P},r\rangle$
+		\centering $\mathcal{M}=\langle \mathcal{S},\mathcal{A},\mathcal{P},r\rangle$.
 	\end{block}
 
 \end{frame}
@@ -307,7 +307,7 @@
 
 	\begin{itemize}
 		\item $\gamma$ determines the value of future rewards as $0\leq\gamma\leq1$
-		\item makes $G_t$ finite as long as $\gamma < 1$ and $r_t$ is constant
+		\item Makes $G_t$ finite as long as $\gamma < 1$ and $r_t$ is constant
 	\end{itemize}
 	
 	\centering
@@ -326,9 +326,9 @@
 
 	One of the most \textcolor{Maroon}{concepts} of Reinforcement Learning: \textcolor{RoyalBlue}{value}
 	\begin{itemize}
-		\item directly connected to the notion of $G_t$
-		\item we can define the value of a state $s$, of an action $a$, and even of a policy $\pi$
-		\item allows the introduction of \textcolor{RoyalBlue}{value functions}
+		\item Directly connected to the notion of $G_t$
+		\item We can define the value of a state $s$, of an action $a$, and even of a policy $\pi$
+		\item Allows the introduction of \textcolor{RoyalBlue}{value functions}
 			\begin{itemize}
 				\item state-value function $V(s)$
 				\item state-action value function $Q(s,a)$
@@ -365,7 +365,7 @@
 	\begin{itemize}
 		\item Is much more \textcolor{RoyalBlue}{informative} compared to $V^{\pi}(s)$
 		\item Intuitively tells us \textit{how good/bad} taking action $a$ in state $s$ is
-		\item Plays a crucial role in the \textcolor{RoyalBlue}{developement} of Reinforcement Learning algorithms
+		\item Plays a crucial role in the \textcolor{RoyalBlue}{development} of Reinforcement Learning algorithms
 	\end{itemize}
 
 \end{frame}
