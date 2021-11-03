@@ -1,0 +1,28 @@
+\tikzset{
+  frame/.style={
+    rectangle, draw,
+    text width=6em, text centered,
+    minimum height=4em,drop shadow,fill=white,
+    rounded corners,
+  },
+  line/.style={
+    draw, -{Latex},rounded corners=3mm,
+  }
+}
+
+\begin{tikzpicture}[font=\small\sffamily\bfseries,very thick,node distance = 4cm]
+\node [frame] (agent) {Agent};
+\node [frame, below=1.2cm of agent] (environment) {Environment};
+\draw[line] (agent.0) -- ++ (1.5,0) |- (environment.0) 
+node[right,pos=0.25,align=left] {action\\ $a_t$};
+\coordinate[left=8mm of environment] (P);
+\draw[thin,dashed] (P|-environment.north) -- (P|-environment.south);
+\draw[line] (environment.200) -- (P |- environment.200)
+node[midway,above]{$s_{t+1}$};
+\draw[line,thick] (environment.160) -- (P |- environment.160)
+node[midway,above]{$r_{t+1}$};
+\draw[line] (P |- environment.200) -- ++ (-1.4,0) |- (agent.160)
+node[left, pos=0.25, align=right] {state\\ $s_t$};
+\draw[line,thick] (P |- environment.160) -- ++ (-0.8,0) |- (agent.200)
+node[right,pos=0.25,align=left] {reward\\ $r_t$};
+\end{tikzpicture}
