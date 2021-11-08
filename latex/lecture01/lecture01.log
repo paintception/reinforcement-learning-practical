@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.5)  19 OCT 2021 12:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.5)  29 OCT 2021 13:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1416,7 +1416,7 @@ LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <10> not available
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 260.
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 261.
 
  [16
 
@@ -1436,21 +1436,21 @@ LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <12> not available
 ] [23
 
 ]
-Overfull \hbox (2.69661pt too wide) detected at line 391
+Overfull \hbox (2.69661pt too wide) detected at line 392
 []
  []
 
 [24
 
 ]
-Overfull \hbox (2.69661pt too wide) detected at line 400
+Overfull \hbox (2.69661pt too wide) detected at line 401
 []
  []
 
 [25
 
 ]
-Overfull \hbox (2.69661pt too wide) detected at line 411
+Overfull \hbox (2.69661pt too wide) detected at line 412
 []
  []
 
@@ -1463,7 +1463,7 @@ Overfull \hbox (2.69661pt too wide) detected at line 411
 ]
 
 LaTeX Font Warning: Font shape `OT1/cmbr/m/sc' undefined
-(Font)              using `OT1/cmbr/m/n' instead on input line 466.
+(Font)              using `OT1/cmbr/m/n' instead on input line 467.
 
 [29
 
@@ -1477,11 +1477,11 @@ LaTeX Font Warning: Font shape `OT1/cmbr/m/sc' undefined
 \tf@snm=\write8
 \openout8 = `lecture01.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 468.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 468.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 469.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 469.
  (./lecture01.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 468.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 468.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 469.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 469.
 Package rerunfilecheck Info: File `lecture01.out' has not changed.
 (rerunfilecheck)             Checksum: 422B23C2EDF2BA276108CD7598F285CA;225.
 
@@ -1496,7 +1496,7 @@ Here is how much of TeX's memory you used:
  48998 multiletter control sequences out of 15000+600000
  553640 words of font info for 109 fonts, out of 8000000 for 9000
  497 hyphenation exceptions out of 8191
- 64i,16n,103p,776b,972s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,16n,103p,776b,976s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/
@@ -1519,7 +1519,7 @@ lic/hfbright/hfbrsl9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbr
 ight/hfbrsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/hf
 brsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/hfbrsy9.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/hftl10.pfb>
-Output written on lecture01.pdf (29 pages, 305113 bytes).
+Output written on lecture01.pdf (29 pages, 305086 bytes).
 PDF statistics:
  338 PDF objects out of 1000 (max. 8388607)
  253 compressed objects within 3 object streams
