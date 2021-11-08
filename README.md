@@ -14,8 +14,8 @@ Lectures for Reinforcement Learning Practical, University of Groningen, Semester
 
 | Date | Topic |
 | --- | --- |
-| November&nbsp;15 | Lecture 1: Foundations of Reinforcement Learning (Matthia Sabatelli): [slides](latex/lecture01/lecture01.pdf) |
-| November&nbsp;22 | Lecture 2: Exploration and Bandit Problems (Nicole Orzan): [slides](latex/lecture02/lecture02.pdf) |
+| November&nbsp;15 | Lecture 1: Foundations of Reinforcement Learning (Matthia Sabatelli): [slides](pdf/lecture01.pdf) |
+| November&nbsp;22 | Lecture 2: Exploration and Bandit Problems (Nicole Orzan): [slides](pdf/lecture02.pdf) |
 | November&nbsp;29 | Lecture 3: Dynamic Programming (Nicole Orzan): [slides]() |
 | December&nbsp;6 | Lecture 4: Model-Free Reinforcement Learning (Matthia Sabatelli): [slides]() |
 | December&nbsp;13 | Lecture 5: Function Approximators (Matthia Sabatelli): [slides]() |
