@@ -387,7 +387,7 @@ Some examples of Reinforcement Learning:
 
 		\begin{align*}
 			V^{\pi}(s) & = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
-			   & = \sum_a \pi(s,a) \sum_{s+1} p(s_{t+1}|s,a)\big[\Re(s_t, a, s_{t+1}) + \gamma V^{\pi}(s_{t+1}) \big] 
+			   & = \sum_a \pi(s,a) \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[\Re(s_t, a, s_{t+1}) + \gamma V^{\pi}(s_{t+1}) \big] 
 		\end{align*}
 \end{frame}
 
@@ -396,7 +396,7 @@ Some examples of Reinforcement Learning:
 	An interesting property of these value functions is that they satisfy a \textcolor{RoyalBlue}{recursive equality}
 		\begin{align*}
 			\textcolor{blue}{V^{\pi}(s)} & = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
-			   & = \sum_a \pi(s,a) \sum_{s+1} p(s_{t+1}|s,a)\big[\Re(s_t, a, s_{t+1}) + \gamma \textcolor{blue}{V^{\pi}(s_{t+1}}) \big] 
+			   & = \sum_a \pi(s,a) \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[\Re(s_t, a, s_{t+1}) + \gamma \textcolor{blue}{V^{\pi}(s_{t+1}}) \big] 
 		\end{align*}
 \end{frame}
 
@@ -405,7 +405,7 @@ Some examples of Reinforcement Learning:
 	An interesting property of these value functions is that they satisfy a \textcolor{RoyalBlue}{recursive equality}
 		\begin{align*}
 		\textcolor{blue}{V^{\pi}(s)} & = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
-			   & = \sum_a \pi(s,a) \sum_{s+1} p(s_{t+1}|s,a)\big[\Re(s_t, a, s_{t+1}) + \gamma \textcolor{blue}{V^{\pi}(s_{t+1}}) \big] 
+			   & = \sum_a \pi(s,a) \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[\Re(s_t, a, s_{t+1}) + \gamma \textcolor{blue}{V^{\pi}(s_{t+1}}) \big] 
 		\end{align*}
 
 	which is \textcolor{Maroon}{key} for the creation of Reinforcement Learning algorithms (Lectures 3 and 4)!

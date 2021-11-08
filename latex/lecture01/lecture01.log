@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.5)  29 OCT 2021 13:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.11.8)  8 NOV 2021 17:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -670,12 +670,16 @@ File: babel.def 2020/02/14 3.40 Babel common definitions
 LaTeX Info: Redefining \textlatin on input line 2319.
 \bbl@dirlevel=\count312
 )
+Package babel Info: \l@british = using hyphenrules for english
+(babel)             (\language0) on input line 82.
+Package babel Info: \l@UKenglish = using hyphenrules for english
+(babel)             (\language0) on input line 83.
 Package babel Info: \l@canadian = using hyphenrules for english
 (babel)             (\language0) on input line 102.
-Package babel Info: \l@australian = using hyphenrules for ukenglish
-(babel)             (\language16) on input line 105.
-Package babel Info: \l@newzealand = using hyphenrules for ukenglish
-(babel)             (\language16) on input line 108.
+Package babel Info: \l@australian = using hyphenrules for english
+(babel)             (\language0) on input line 105.
+Package babel Info: \l@newzealand = using hyphenrules for english
+(babel)             (\language0) on input line 108.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/xmpmulti.sty
 \@mpm@count=\count313
@@ -1490,12 +1494,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 34790 strings out of 482543
- 832779 string characters out of 5955241
- 1226696 words of memory out of 5000000
- 48998 multiletter control sequences out of 15000+600000
+ 34792 strings out of 483183
+ 832799 string characters out of 5966292
+ 1225389 words of memory out of 5000000
+ 48973 multiletter control sequences out of 15000+600000
  553640 words of font info for 109 fonts, out of 8000000 for 9000
- 497 hyphenation exceptions out of 8191
+ 14 hyphenation exceptions out of 8191
  64i,16n,103p,776b,976s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/
@@ -1519,7 +1523,7 @@ lic/hfbright/hfbrsl9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbr
 ight/hfbrsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/hf
 brsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/hfbrsy9.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/hftl10.pfb>
-Output written on lecture01.pdf (29 pages, 305086 bytes).
+Output written on lecture01.pdf (29 pages, 305186 bytes).
 PDF statistics:
  338 PDF objects out of 1000 (max. 8388607)
  253 compressed objects within 3 object streams
