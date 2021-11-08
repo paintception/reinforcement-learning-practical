@@ -257,7 +257,7 @@ We can use action value estimates to learn a policy.
 
 \begin{frame}{Sample-average Method}
 
-The simpler estimate is given by the average of the sampled rewards:
+The simplest estimate is given by the average of the sampled rewards:
 
 \begin{align*}
 	Q_t(a) &\doteq \frac{\text{sum of rewards when $a$ taken prior to $t$}}{\text{number of times $a$ taken prior to $t$} }\\
@@ -385,7 +385,7 @@ If we could explicit the \textcolor{RoyalBlue}{uncertainty} of our action-values
 
 \vspace{5mm}
 
-Select actions leveraging their uncertainty: if we are uncertain about the value of an action, we \textcolor{RoyalBlue}{optimistically assume that it is good}.
+Select actions by leveraging their uncertainty: if we are uncertain about the value of an action, we \textcolor{RoyalBlue}{optimistically assume that it is good}.
 
 \end{frame}
 
@@ -509,7 +509,7 @@ From the action preferences, we can define a policy using the \textcolor{RoyalBl
     \end{align*}
 \end{block}
 
-\textcolor{Maroon}{Reminder}: You will use this distribution in deep learning, to convert the values into a probability distribution.
+\textcolor{Maroon}{Note}: You will use this distribution in deep learning when it comes to multi-class classification problems!
 
 \end{frame}
 
@@ -549,7 +549,7 @@ Where the formula above is based on the idea of stochastic gradient ascent.
 \begin{frame}{Associative Search: Contextual Bandits}
 
 Until now, we considered contexts where the agent has to learn how to behave in a \textcolor{Maroon}{single situation}.
-However, the general problem of reinforcement learning deals with learning how to behave in a number of \textcolor{RoyalBlue}{different situations}.
+However, the general problem of Reinforcement Learning deals with learning how to behave in a number of \textcolor{RoyalBlue}{different situations}.
 
 \end{frame}
 
@@ -562,7 +562,7 @@ Simple way to extend bandits:
 \begin{itemize}
     \item You face $N$ different Multi-Armed bandit problems%, where you are given some kind of information in order to distinguish among those
     \item This is an \textcolor{RoyalBlue}{associative task}: $\pi: \mathcal{S}\rightarrow \mathcal{A}$
-    \item Similar to the full reinforcement learning problem as they involve \textcolor{RoyalBlue}{learning a policy}, but like the k-armed bandit problem in that each action affects only the \textcolor{RoyalBlue}{immediate reward}.
+    \item Similar to the full Reinforcement Learning problem as they involve \textcolor{RoyalBlue}{learning a policy}, but like the k-armed bandit problem in that each action affects only the \textcolor{RoyalBlue}{immediate reward}.
 \end{itemize}
 
 \end{frame}
@@ -593,7 +593,7 @@ Simple way to extend bandits:
 		    \item Multi-Armed bandit is a simplified setting with a single state
 		    \item To learn a policy we need to balance Exploration and Exploitation
 			\item We can learn the policy by leveraging action-values estimates $Q(a)$
-			\item Or leveraging action preferences $H(a)$
+			\item Or by leveraging action preferences $H(a)$
 		\end{enumerate}
 	\end{takeaway}
 \end{frame}
