@@ -72,7 +72,7 @@
 	\begin{itemize}
 		\item Coordinator: Matthia Sabatelli
 		\item Lecturers: Matthia Sabatelli (\textcolor{RoyalBlue}{m.sabatelli@rug.nl}) and Nicole Orzan (\textcolor{RoyalBlue}{n.orzan@rug.nl})
-		\item Classroom: TBD
+		\item Classroom: Your bedroom
 		\item Theoretical Lectures: Monday morning from 9:00-11:00
 		\item Computer Labs: Monday afternoon from 15:00-17:00
 	\end{itemize}
@@ -411,11 +411,26 @@ Some examples of Reinforcement Learning:
 	which is \textcolor{Maroon}{key} for the creation of Reinforcement Learning algorithms (Lectures 3 and 4)!
 \end{frame}
 
+\begin{frame}{Value Functions}
+	Where does this recursive property come from?
+		\begin{block}{Derivation Time!}
+		\begin{equation*}
+			\begin{split}
+				\uncover<+-> {V^{\pi}(s) & =\mathds{E}\big[\sum_{k=0}^{\infty}\gamma^{k}r_{t+k}\big| s_t = s, \pi \big]} \\ 
+				 \uncover<+-> {& =\mathds{E}\big[r_{t}+\gamma r_{t+1}+\gamma^{2}r_{t+2}+\ldots \big| s_t =s , \pi \big]} \\ 
+				 \uncover<+-> {& =\mathds{E}\big[r_{t}+\gamma(r_{t+1}+\gamma r_{t+2}+\ldots)\big| s_t =s , \pi \big]} \\
+				 \uncover<+-> {& =\mathds{E}\big[r_{t}+\gamma V^{\pi}(s_{t+1}) \big| s_t =s , \pi \big]} \\
+				 \uncover<+-> {& =\sum_a \pi(s,a) \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[\Re(s_t, a, s_{t+1}) + \gamma V^{\pi}(s_{t+1}) \big]}.
+			\end{split}
+		\end{equation*}
+		\end{block}
+\end{frame}
+
 
 \begin{frame}{Optimal Value Functions}
 	Solving a Reinforcement Learning problem intuitively means finding a policy $\pi$ that achieves \textcolor{RoyalBlue}{a lot of reward}:
 	\begin{itemize}
-		\item What makes a certain policy $\pi$ \textcolor{RoyalBlue}{better} than another policy $\pi^{'}$? 
+		\item What makes a certain policy $\pi$ \textcolor{RoyalBlue}{better} than another policy $\pi^{\prime}$? 
 		\item How can we \textcolor{RoyalBlue}{rank} different policies?
 	\end{itemize}
 	
@@ -424,7 +439,7 @@ Some examples of Reinforcement Learning:
 	\begin{block}{Optimal Policy $\pi^*$}
 		There is always one policy that is better or equal than all other policies
 	\begin{align*}
-		\pi \geq \pi^{'}\: \text{iff}\: V^{\pi}(s) \geq V^{\pi^{'}}(s) \: \text{for all}\: s\in\mathcal{S}
+		\pi \geq \pi^{\prime}\: \text{iff}\: V^{\pi}(s) \geq V^{\pi^{\prime}}(s) \: \text{for all}\: s\in\mathcal{S}
 	\end{align*}
 		The best possible policy is the \textcolor{RoyalBlue}{optimal policy} $\pi^{*}$
 	\end{block}
