@@ -1,0 +1,4 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Model-Free Reinforcement Learning}{4}{0}{1}
+\beamer@sectionintoc {2}{Monte Carlo Methods}{8}{0}{2}
+\beamer@sectionintoc {3}{Temporal Difference Learning}{15}{0}{3}
