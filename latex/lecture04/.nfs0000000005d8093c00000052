@@ -280,10 +280,13 @@
 	\begin{itemize}
 		\item We update the value of a state with respect to the value of its \textcolor{RoyalBlue}{successor} state only
 		\item Ideally we would like to use $V^{\pi}(s_{t+1})$ for learning but it is unfortunately \textcolor{Maroon}{unknown}
-	\end{itemize}	
+	\end{itemize}
+	
 	\begin{align*}
 		V(s_t):= V(s_t) + \alpha \big[r_t + \gamma V^{\pi}(s_{t+1}) - V(s_t)\big].
 	\end{align*}
+
+
 	Therefore we \textcolor{RoyalBlue}{replace} with a guess instead:
 	\begin{align*}
 		V(s_t):= V(s_t) + \alpha \big[r_t + \gamma V(s_{t+1}) - V(s_t)\big].
@@ -298,9 +301,12 @@
 		\item We update the value of a state with respect to the value of its \textcolor{RoyalBlue}{successor} state only
 		\item Ideally we would like to use $V^{\pi}(s_{t+1})$ for learning but it is unfortunately \textcolor{Maroon}{unknown}
 	\end{itemize}
+	
 	\begin{align*}
 		V(s_t):= V(s_t) + \alpha \big[r_t + \gamma \textcolor{red}{V^{\pi}(s_{t+1})} - V(s_t)\big].
 	\end{align*}
+
+
 	Therefore we \textcolor{RoyalBlue}{replace} it with a guess instead:
 	\begin{align*}
 		V(s_t):= V(s_t) + \alpha \big[r_t + \gamma \textcolor{green}{V(s_{t+1})} - V(s_t)\big].
@@ -475,7 +481,7 @@
 	\begin{takeaway}{Quiz Time!}
 		Imagine an algorithm which jointly learns the state-value function $V^{\pi}(s)$ as follows 
 		\begin{align*}
-			V(s):= V(s) + \alpha \big[r_{t} + \gamma V(s_{t+1}) - V(s_t) \big]
+			V(s):= V(s) + \alpha \big[r_{t} + \gamma \ - V(s_t) \big]
 		\end{align*}
 		and the state-action value function $Q^{\pi}(s,a)$ as follows:
 		\begin{align*}
@@ -496,7 +502,7 @@
 	\begin{takeaway}{Quiz Time!}
 		Now imagine an algorithm which jointly learns the state-value function $V^{\pi}(s)$ as follows 
 		\begin{align*}
-			V(s):= V(s) + \alpha \big[r_{t} + \gamma \: \underset{a\in \mathcal{A}}{\max}Q(s_{t+1},a_t) - V(s_t) \big]
+			V(s):= V(s) + \alpha \big[r_{t} + \gamma \:\underset{a\in \mathcal{A}}{\max} Q(s_{t+1},a_t) - V(s_t) \big]
 		\end{align*}
 		and the state-action value function $Q^{\pi}(s,a)$ as follows:
 		\begin{align*}
@@ -514,6 +520,8 @@
 \end{frame}
 
 
+
+
 \begin{frame}{Temporal Difference (TD) Learning}
 	Pros \& Cons of TD-Learning methods:
 	\begin{itemize}
@@ -523,22 +531,19 @@
 		\item It can be \textcolor{Maroon}{complicated} to combine them with non-linear function approximators \textcolor{red}{\xmark}
 	\end{itemize}
 
-	Both approaches can be combined resulting in $\text{TD}(\lambda)$ algorithms!
-
-	\bigskip
-
-	TD-Learning methods empirically work better but a formal proof about why this is the case is missing ...
+	Both approaches can be comnined resulting in $TD($\lambda$)$ algorithms!
 
 \end{frame}
 
+\begin{frame}{Temporal Difference (TD) Learning}
+	
+\end{frame}
+
+
+
 \begin{frame}{Final Slide!}
 	\begin{takeaway}{Lecture Takeaway}
-		\begin{itemize}
-			\item What happens when parts of the Markov Decision Process are unknown
-			\item Dynamic Programming $\rightarrow$ Reinforcement Learning
-			\item Two families of model-free Reinforcement Learning algorithms
-			\item We have seen the difference between \textit{on-policy} and \textit{off-policy} learning
-		\end{itemize}
+		
 
 	\end{takeaway}
 \end{frame}
