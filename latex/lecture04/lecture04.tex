@@ -307,7 +307,7 @@
 	\end{align*}
 
 
-	Therefore we \textcolor{RoyalBlue}{replace} with a guess instead:
+	Therefore we \textcolor{RoyalBlue}{replace} it with a guess instead:
 	\begin{align*}
 		V(s_t):= V(s_t) + \alpha \big[r_t + \gamma \textcolor{green}{V(s_{t+1})} - V(s_t)\big].
 	\end{align*}
@@ -343,6 +343,137 @@
 	\end{align*}
 
 \end{frame}
+
+\begin{frame}{Temporal Difference (TD) Learning}
+	What is so cool about the TD Learning update rule?
+
+	\begin{align*}
+		V(s_t) & := V(s_t) + \alpha \big[r_t + \gamma V(s_{t+1}) - V(s_t)\big] \\
+	\end{align*}
+
+	\begin{center}
+	\textcolor{RoyalBlue}{\textit{We are learning by guessing!}}
+	\end{center}
+
+	\begin{itemize}
+		\item We want to learn $V(s_t)$ with respect to $V(s_{t+1})$
+		\item But $V(s_{t+1})$ is as unknown as $V(s_t)$
+		\item We use the information provided by the environment $r_t$ immediately to construct the \textcolor{RoyalBlue}{TD-error} $\delta_t$
+	\end{itemize}
+
+	\begin{align*}
+		V(s_t) & := \underbrace{V(s_t) + \alpha \big[r_t + \gamma V(s_{t+1})}_{\textcolor{blue}{\delta_t}} - V(s_t)\big] \\
+	\end{align*}
+\end{frame}
+
+\begin{frame}{Temporal Difference (TD) Learning}
+	Why are the TD-errors \textcolor{blue}{$\delta_t$} so important?
+	\begin{itemize}
+		\item They allow us to start learning \textcolor{RoyalBlue}{immediately} 
+		\item They separate RL algorithms into two \textcolor{RoyalBlue}{families} of techniques: \textit{off-policy} and \textit{on-policy} techniques
+		\item Each family comes with its own \textcolor{RoyalBlue}{convergence properties}
+	\end{itemize}
+
+	\bigskip
+
+	To know more about these families let us consider the problem of learning the state-action value function $Q^{\pi}(s,a)$
+	
+	\begin{align*}
+     	Q^{\pi}(s,a)=\mathds{E}\bigg[\sum_{k=0}^{\infty}\gamma^{k}r_{t+k} \bigg| s_t = s, a_t=a, \pi\bigg].
+	\end{align*}
+\end{frame}
+
+\begin{frame}{Temporal Difference (TD) Learning}
+	The arguably most popular algorithm for learning $Q^{\pi}(s,a)$ is \textcolor{RoyalBlue}{Q-Learning} (Watkins \& Dayan, 1992)
+
+	\begin{itemize}
+		\item Is an \textit{off-policy} learning algorithm 
+		\item Able of converging to the optimal state-action value function $Q^{*}(s,a)$ with probability $1$
+		\item Works by keeping track of an estimate of the state-action value function $Q: \mathcal{S} \times \mathcal{A} \rightarrow \Re$
+	\end{itemize}
+
+	\begin{block}{Q-Learning}
+		The update rule of each visited state-action pair used by Q-Learning is:
+		\begin{align*}
+			Q(s_t,a_t):=Q(s_t,a_t) + \alpha\Big[r_t + \gamma \:\underset{a\in \mathcal{A}}{\max} Q(s_{t+1},a_t) - Q(s_t, a_t) \Big].
+		\end{align*}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}{Temporal Difference (TD) Learning}
+
+	How does Q-Learning work?
+
+	\begin{align*}
+		Q(s_t,a_t):=\underbrace{Q(s_t,a_t) + \alpha\Big[r_t + \gamma \:\underset{a\in \mathcal{A}}{\max} Q(s_{t+1},a_t)}_{\textcolor{blue}{\delta_t}} - Q(s_t, a_t) \Big]
+	\end{align*}
+
+	\begin{itemize}
+		\item \onslide<+-> We create the TD-error $\delta_t$ by using the \textcolor{Maroon}{$\underset{a\in \mathcal{A}}{\max}$} operator 
+		\item \onslide<+-> We \textcolor{Maroon}{always} update $Q(s_t,a_t)$ with respect to a greedy policy
+		\item \onslide<+-> Even if the agent is exploring the environment, learning is done \textcolor{Maroon}{greedily} $\rightarrow$ \textit{off-policy} learning
+	\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}{Temporal Difference (TD) Learning}
+
+	We can also learn the $Q^{\pi}(s,a)$ function in a way which is more similar to how we learned $V^{\pi}(s)$ beforehand: \textcolor{RoyalBlue}{SARSA} (Rummery \& Niranjan, 1994)
+
+	\begin{itemize}
+		\item Is an \textit{on-policy} learning algorithm
+		\item Also works by keeping track of $Q: \mathcal{S} \times \mathcal{A} \rightarrow \Re$ 
+		\item Has different convergence properties 
+
+	\end{itemize}
+
+	\begin{block}{SARSA}
+		The update rule of each visited state-action pair used by SARSA is:
+		\begin{align*}
+			Q(s_t,a_t):=Q(s_t,a_t) + \alpha\Big[r_t + \gamma \:Q(s_{t+1},a_{t+1}) - Q(s_t, a_t) \Big].
+		\end{align*}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Temporal Difference (TD) Learning}
+
+		If we take a look at SARSA's TD-error ...
+
+		\begin{align*}
+			Q(s_t,a_t):=\underbrace{Q(s_t,a_t) + \alpha\Big[r_t + \gamma \: Q(s_{t+1},a_{t+1})}_{\textcolor{blue}{\delta_t}} - Q(s_t, a_t) \Big]
+		\end{align*}
+
+
+		\begin{itemize}
+			\item \onslide<+-> We \textcolor{Maroon}{do not use} the $\max$ operator anymore
+			\item \onslide<+-> We learn with respect to the next state visited by the agent $s_{t+1}$ which might or \textcolor{Maroon}{might not} (important!) correspond to a greedy policy
+			\item \onslide<+-> As we are always taking into account the actions chosen by the agent $Q(s_{t+1}, a_{t+1})$ we learn $\rightarrow$ \textit{on-policy}
+		\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}{Temporal Difference (TD) Learning}
+
+		If we take a look at SARSA's TD-error ...
+
+		\begin{align*}
+			Q(s_t,a_t):=\underbrace{Q(\textcolor{red}{s_t,a_t}) + \alpha\Big[\textcolor{red}{r_t} + \gamma \: Q(\textcolor{red}{s_{t+1},a_{t+1}})}_{\textcolor{blue}{\delta_t}} - Q(s_t, a_t) \Big]
+		\end{align*}
+
+
+		\begin{itemize}
+			\item We \textcolor{Maroon}{do not use} the $\max$ operator anymore
+			\item We learn with respect to the next state visited by the agent $s_{t+1}$ which might or \textcolor{Maroon}{might not} (important!) correspond to a greedy policy
+			\item As we are always taking into account the actions chosen by the agent $Q(s_{t+1}, a_{t+1})$ we learn $\rightarrow$ \textit{on-policy}
+		\end{itemize}
+
+\end{frame}
+
 
 
 
