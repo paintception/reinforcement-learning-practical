@@ -228,13 +228,17 @@ The \textcolor{RoyalBlue}{action value} for action a is the reward we expect to 
 The goal is to find the \textcolor{RoyalBlue}{optimal value}, by maximizing the expected cumulative reward:
 
 \begin{align*}
-    a_{*} =\underset{a}{\argmax}\:\mathds{E}[R_t|a_t = a]
+    a^{*} =\underset{a}{\argmax}\:\mathds{E}[R_t|a_t = a]
 \end{align*}
+
+
+\vspace{1mm}
 
 \textcolor{RoyalBlue}{Regret} of an action $a$:
 \begin{align*}
-    \Delta_a = a_{*} - Q(a)
+    \Delta_a = Q^{*}(a^{*}) - Q^{*}(a)
 \end{align*}
+
 
 \end{frame}
 
@@ -253,15 +257,16 @@ We denote the estimated value of action $a$ at time step $t$ as $Q_t(a)$.
 
 We can use action value estimates to learn a policy.
 
+
 \end{frame}
 
-\begin{frame}{Sample-average Method}
+\begin{frame}{Sample-Average Method}
 
 The simplest estimate is given by the average of the sampled rewards:
 
 \begin{align*}
 	Q_t(a) &\doteq \frac{\text{sum of rewards when $a$ taken prior to $t$}}{\text{number of times $a$ taken prior to $t$} }\\
-	   & = \frac{\sum_{i=0}^{T} R_i \cdot \mathds I(A_i = a)}{\sum_{i=0}^{T} \mathds I(A_i = a)}
+	   & = \frac{\sum_{i=0}^{t-1} R_i \cdot \mathds I(A_i = a)}{\sum_{i=0}^{t-1} \mathds I(A_i = a)}
 \end{align*}
 
 $\mathds I$ is the \textcolor{RoyalBlue}{indicator function}: $\mathds I(True) = 1$, and $\mathds I(False) = 0$.
@@ -274,7 +279,7 @@ $\mathds I$ is the \textcolor{RoyalBlue}{indicator function}: $\mathds I(True) =
 The sample-average method can be computed incrementally:
 
 \begin{align*}
-	Q_{t+1}(a) &= \frac{1}{t+1} \sum_{i=0}^{t+1} R_i \\
+	Q_{t+1}(a) &= \frac{1}{t} \sum_{i=0}^{t} R_i \\
 	           &= \frac{1}{t} \bigg[ R_t + (t-1)\frac{1}{t-1}\sum_{i=0}^{t-1} R_i \bigg]\\
 	           &= \frac{1}{t} \bigg[ R_t + (t-1) Q_t(a) \bigg ]\\
 	           &= Q_t(a) + \frac{1}{t}  \bigg[ R_t - Q_t(a)  \bigg ]
@@ -287,19 +292,23 @@ The sample-average method can be computed incrementally:
 \begin{frame}{Incremental Update}
 
 \begin{align*}
-	Q_{t+1}(a) = Q_t(a) + \alpha_t ( R_t - Q_t(a)) \hspace{4mm} \text{where} \hspace{4mm} \alpha_t = \frac{1}{t}
+	Q_{t+1}(a) := Q_t(a) + \alpha_t ( R_t - Q_t(a)) \hspace{4mm} \text{where} \hspace{4mm} \alpha_t = \frac{1}{t}
 \end{align*}
 
 
 \begin{block}{Update Rule}		
 \begin{align*}
-    NewEstimate \leftarrow OldEstimate + StepSize [Target - OldEstimate]
+    NewEstimate \leftarrow OldEstimate + StepSize \; [Target - OldEstimate]
 \end{align*}\end{block}
 
 
 \vspace{4mm}
 
-Later we will consider other possible step sizes $\alpha_t$.
+We can also consider other possible step sizes $\alpha_t$, but they need to respect the following conditions:
+
+\begin{align*}
+	\sum_{t=0}^{\infty} \alpha_t = \infty \hspace{9mm} \sum_{t=0}^{\infty} \alpha^2_t < \infty
+\end{align*}
 
 \end{frame}
 
@@ -321,7 +330,7 @@ A_{t} =\underset{a \in \mathcal{A}}{\argmax} \; Q_t(a)
 \end{frame}
 
 
-\begin{frame}{Action Selection: $\epsilon-$greedy}
+\begin{frame}{Action Selection: $\epsilon$-greedy}
 
 
 
@@ -357,7 +366,7 @@ Where $\epsilon$ is a small, positive number $0 < \epsilon < 1$.
 
 \begin{frame}{Optimistic Initial Values}
 
-All the methods discussed up to now depend on the \textcolor{RoyalBlue}{initial values} of the action estimates,  $Q_0(a) \; | a \in \mathcal{A}$.
+All the methods discussed up to now depend on the \textcolor{RoyalBlue}{initial values} of the action estimates,  $Q_0(a) \; | \; a \in \mathcal{A}$.
 
 \vspace{5mm}
 
@@ -423,8 +432,8 @@ Select actions by leveraging their uncertainty: if we are uncertain about the va
 
 \begin{tikzpicture}
 \node[text width=3cm] at (5.8,0.6) {$Q_0$};  
-\draw (0,0) -- (4.,0) node {[} --  (5.,0) node {]} -- (8,0);
-\draw [red] (4.5,-0.25) -- (4.5,0.25);
+\draw (0,0) -- (3.,0) node {[} --  (5.,0) node {]} -- (8,0);
+\draw [red] (4.,-0.25) -- (4.,0.25);
 
 \node[text width=3cm] at (4.1,-0.9) {$Q_1$};  
 \draw (0,-1.5) -- (1.5,-1.5) node {[} --  (4,-1.5) node {]} -- (8,-1.5);
@@ -446,13 +455,13 @@ Select actions by leveraging their uncertainty: if we are uncertain about the va
 We want to estimate an upper confidence bound for every action value:
 
 \begin{align*}
-q_t \leq Q_{t}(a) + U_t(a)
+Q^{*}(a) \leq Q_{t}(a) + U_t(a)
 \end{align*}
 
 And select \textcolor{RoyalBlue}{greedily} the action maximizing the UCB:
 
 \begin{align*}
-a_t \doteq \argmax_{a \in \mathcal{A}} Q_t(a) + U_t(a)
+a_t \doteq \argmax_{a \in \mathcal{A}} \; \big [ Q_t(a) + U_t(a) \big ]
 \end{align*}
 
 
@@ -534,9 +543,10 @@ From the action preferences, we can define a policy using the \textcolor{RoyalBl
 
 If at time step $t$ we choose action $a^{\prime}$, we can update the action preferences as:
 
+
 \begin{align*}
-H_{t+1}(a^{\prime}) \doteq H_t(a^{\prime}) + \alpha \: r_t (1 - \pi_t(a^{\prime}))\\
-H_{t+1}(a) \doteq H_t(a) + \alpha \: r_t \: \pi_t(a^{\prime}) \; \text{ if } \; a \neq a^{\prime}
+H_{t+1}(a^{\prime}) \doteq H_t(a^{\prime}) + \alpha \: (r_t - \bar r_t) (1 - \pi_t(a^{\prime}))\\
+H_{t+1}(a) \doteq H_t(a) - \alpha \:  (r_t - \bar r_t) \: \pi_t(a) \; \text{ if } \; a \neq a^{\prime}
 \end{align*}
 
 \vspace{2mm}
