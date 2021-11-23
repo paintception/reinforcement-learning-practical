@@ -5,6 +5,7 @@ Lectures for Reinforcement Learning Practical, University of Groningen, Semester
 
 - Coordinator: Matthia Sabatelli
 - Lecturers:  Matthia Sabatelli ([m.sabatelli@rug.nl](mailto:m.sabatelli@rug.nl)) and Nicole Orzan ([n.orzan@rug.nl](mailto:n.orzan@rug.nl))
+- Teaching Assistant: Henry Maathuis ([h.maathuis@rug.nl](mailto:h.maathuis@rug.nl))  
 - Period: Semester Ib 
 - When: Monday 9:00-11:00 AM (theoretical lectures) and Monday 15:00-17:00 (Computer Lab)
 
