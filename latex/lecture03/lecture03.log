@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.11.24)  25 NOV 2021 07:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.11.24)  25 NOV 2021 10:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1398,51 +1398,48 @@ LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <5> not available
 ] [3
 
 ]
+(./lecture03.toc) [4
+
+]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-22.
+28.
 
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [4
-
-]
-Overfull \hbox (11.71213pt too wide) detected at line 140
-[]
- []
-
-[5
+) [5
 
 ] [6
 
-] [7
+]
+[7
 
-] (./lecture03.toc) [8
+] [8
 
 ] [9
 
 ] [10
 
 ]
-<./images/pi1.png, id=140, 727.71875pt x 518.93875pt>
+<./images/pi1.png, id=145, 727.71875pt x 518.93875pt>
 File: ./images/pi1.png Graphic file (type png)
 <use ./images/pi1.png>
-Package pdftex.def Info: ./images/pi1.png  used on input line 219.
+Package pdftex.def Info: ./images/pi1.png  used on input line 230.
 (pdftex.def)             Requested size: 227.62204pt x 162.3184pt.
  [11
 
  <./images/pi1.png>]
-<./images/pi2.png, id=148, 727.71875pt x 518.93875pt>
+<./images/pi2.png, id=152, 727.71875pt x 518.93875pt>
 File: ./images/pi2.png Graphic file (type png)
 <use ./images/pi2.png>
-Package pdftex.def Info: ./images/pi2.png  used on input line 231.
+Package pdftex.def Info: ./images/pi2.png  used on input line 242.
 (pdftex.def)             Requested size: 227.62204pt x 162.3184pt.
  [12
 
  <./images/pi2.png>]
-<./images/pi3.png, id=155, 727.71875pt x 518.93875pt>
+<./images/pi3.png, id=159, 727.71875pt x 518.93875pt>
 File: ./images/pi3.png Graphic file (type png)
 <use ./images/pi3.png>
-Package pdftex.def Info: ./images/pi3.png  used on input line 242.
+Package pdftex.def Info: ./images/pi3.png  used on input line 253.
 (pdftex.def)             Requested size: 227.62204pt x 162.3184pt.
  [13
 
@@ -1451,54 +1448,54 @@ Package pdftex.def Info: ./images/pi3.png  used on input line 242.
 ] [15
 
 ]
-<./images/GridWorld.png, id=172, 517.935pt x 450.68375pt>
+<./images/GridWorld.png, id=176, 517.935pt x 450.68375pt>
 File: ./images/GridWorld.png Graphic file (type png)
 <use ./images/GridWorld.png>
-Package pdftex.def Info: ./images/GridWorld.png  used on input line 299.
+Package pdftex.def Info: ./images/GridWorld.png  used on input line 310.
 (pdftex.def)             Requested size: 128.0374pt x 111.41219pt.
  [16
 
  <./images/GridWorld.png>]
 LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <10> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 324.
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 335.
 
 LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <7> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 324.
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 335.
 
-<./images/step00.png, id=179, 1134.2375pt x 504.88625pt>
+<./images/step00.png, id=183, 1134.2375pt x 504.88625pt>
 File: ./images/step00.png Graphic file (type png)
 <use ./images/step00.png>
-Package pdftex.def Info: ./images/step00.png  used on input line 324.
+Package pdftex.def Info: ./images/step00.png  used on input line 335.
 (pdftex.def)             Requested size: 275.99164pt x 122.85463pt.
 
-Overfull \vbox (10.05061pt too high) detected at line 324
+Overfull \vbox (10.05061pt too high) detected at line 335
  []
 
 [17
 
  <./images/step00.png>]
-<./images/step0.png, id=186, 1134.2375pt x 504.88625pt>
+<./images/step0.png, id=191, 1134.2375pt x 504.88625pt>
 File: ./images/step0.png Graphic file (type png)
 <use ./images/step0.png>
-Package pdftex.def Info: ./images/step0.png  used on input line 351.
+Package pdftex.def Info: ./images/step0.png  used on input line 362.
 (pdftex.def)             Requested size: 275.99164pt x 122.85463pt.
 
-Overfull \vbox (10.05061pt too high) detected at line 351
+Overfull \vbox (10.05061pt too high) detected at line 362
  []
 
 [18
 
  <./images/step0.png>]
-<./images/stepn.png, id=194, 1134.2375pt x 496.85625pt>
+<./images/stepn.png, id=198, 1134.2375pt x 496.85625pt>
 File: ./images/stepn.png Graphic file (type png)
 <use ./images/stepn.png>
-Package pdftex.def Info: ./images/stepn.png  used on input line 368.
+Package pdftex.def Info: ./images/stepn.png  used on input line 379.
 (pdftex.def)             Requested size: 275.99164pt x 120.90068pt.
  [19
 
  <./images/stepn.png>]
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 420.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 431.
 
  [20
 
@@ -1514,7 +1511,7 @@ LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <10.95> not available
 ] [25
 
 ]
-Overfull \vbox (6.5726pt too high) detected at line 581
+Overfull \vbox (6.5726pt too high) detected at line 592
  []
 
 [26
@@ -1524,7 +1521,7 @@ Overfull \vbox (6.5726pt too high) detected at line 581
 ]
 
 LaTeX Font Warning: Font shape `OT1/cmbr/m/sc' undefined
-(Font)              using `OT1/cmbr/m/n' instead on input line 605.
+(Font)              using `OT1/cmbr/m/n' instead on input line 615.
 
 [28
 
@@ -1538,23 +1535,23 @@ LaTeX Font Warning: Font shape `OT1/cmbr/m/sc' undefined
 \tf@snm=\write8
 \openout8 = `lecture03.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 608.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 608.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 618.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 618.
  (./lecture03.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 608.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 608.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 618.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 618.
 Package rerunfilecheck Info: File `lecture03.out' has not changed.
-(rerunfilecheck)             Checksum: 64ADC3717D85DB1868AAF86CE653667A;220.
+(rerunfilecheck)             Checksum: F34DFE06576349ECDFF6EB079078BC54;273.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 35281 strings out of 483107
- 838789 string characters out of 5964629
- 1233356 words of memory out of 5000000
- 49459 multiletter control sequences out of 15000+600000
+ 35286 strings out of 483107
+ 838835 string characters out of 5964629
+ 1233357 words of memory out of 5000000
+ 49463 multiletter control sequences out of 15000+600000
  550997 words of font info for 98 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  64i,16n,103p,776b,666s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1578,10 +1575,10 @@ s/type1/public/hfbright/hfbrsl9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/hfbright/hfbrsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 hfbright/hfbrsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright
 /hfbrsy9.pfb>
-Output written on lecture03.pdf (28 pages, 310552 bytes).
+Output written on lecture03.pdf (28 pages, 310773 bytes).
 PDF statistics:
- 330 PDF objects out of 1000 (max. 8388607)
- 236 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
- 230 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 335 PDF objects out of 1000 (max. 8388607)
+ 241 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
+ 238 words of extra memory for PDF output out of 10000 (max. 10000000)
 

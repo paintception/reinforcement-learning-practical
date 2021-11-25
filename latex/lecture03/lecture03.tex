@@ -93,19 +93,25 @@
 
 \begin{block}{Key Concepts}
 \begin{itemize}
-	\item The problem of learning through interaction is framed as a \textcolor{RoyalBlue}{Markov Decision Process} $\mathcal{M}\langle \mathcal{S}, \mathcal{A}, \mathcal{P}, r \rangle$
 	\item The agent aims to learn a \textcolor{RoyalBlue}{policy} $\pi: \mathcal{S}\rightarrow \mathcal{A}$
 	\item The goal of the agent is to maximize the (discounted) \textcolor{RoyalBlue}{cumulative reward} $G_t = \sum_{k=0}^{\infty}\gamma^{k} r_{t+k+1}$.
 	\item We can find the optimal policy by making use of the \textcolor{RoyalBlue}{value functions} $V^\pi(s)$ and $Q^\pi(s,a)$ 
+	\item We saw how to find an optimal policy in the specific case where \textcolor{RoyalBlue}{one single state} is available
 \end{itemize}
 \end{block}
-	
-\end{frame}	
 
+\vspace{2mm}
+
+	Today we will consider the full Reinforcement Learning problem with its \textcolor{RoyalBlue}{sequential nature}.
+	
+\end{frame}
+
+\frame{\frametitle{Today's Agenda}\tableofcontents}
 
 
 %============================================================================
-\begin{frame}{Recap: Value Functions}
+\begin{frame}{Value Functions}
+\section{Value Functions}
 
 The \textcolor{RoyalBlue}{state-value function} $V^{\pi}(s)$:
 \begin{align*}
@@ -123,7 +129,7 @@ The \textcolor{RoyalBlue}{state-action value function} $Q^{\pi}(s,a)$:
 
 
 %============================================================================
-\begin{frame}{Recap: Bellman Equations}
+\begin{frame}{Bellman Equations}
 
 The \textcolor{RoyalBlue}{state-value function} $V^{\pi}(s)$:
 \begin{align*}
@@ -134,7 +140,7 @@ The \textcolor{RoyalBlue}{state-value function} $V^{\pi}(s)$:
 The \textcolor{RoyalBlue}{state-action value function} $Q^{\pi}(s,a)$:
 \begin{align*}
 	Q^{\pi}(s,a) & = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
-			   & = \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma \sum_{a_{t+1}} \pi(a_{t+1}|s_{t+1}) Q^{\pi}(s_{t+1}, a_{t+1}) \big]
+			   & = \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{\pi}(s_{t+1}) \big] % \gamma \sum_{a_{t+1}} \pi(a_{t+1}|s_{t+1}) Q^{\pi}(s_{t+1}, a_{t+1}) \big]
 \end{align*}
 		
 \end{frame}
@@ -142,7 +148,7 @@ The \textcolor{RoyalBlue}{state-action value function} $Q^{\pi}(s,a)$:
 
 
 %============================================================================
-\begin{frame}{Recap: Optimal Policy}
+\begin{frame}{Optimal Policy}
 
 The value functions allow us to define a partial ordering over policies. 
 	\begin{align*}
@@ -150,19 +156,16 @@ The value functions allow us to define a partial ordering over policies.
 	\end{align*}
 	
 	We can find the optimal policies by \textcolor{RoyalBlue}{maximizing} the state-value and state-action value functions results in the \textcolor{RoyalBlue}{optimal value functions}.
-	\begin{multicols}{2}
-	\begin{equation*}
-		V^{*}(s)=\underset{\pi}{\max}\:V^{\pi}(s)
-	\end{equation*}\break
-	\begin{equation*}
-		Q^{*}(s,a)= \underset{\pi}{\max}\:Q^{\pi}(s,a)
-	\end{equation*}
-	\end{multicols}
+	\begin{align*}
+	V^{*}(s)=\underset{\pi}{\max}\:V^{\pi}(s) \hspace{18mm} Q^{*}(s,a)= \underset{\pi}{\max}\:Q^{\pi}(s,a)
+	\end{align*}
+
+There is always at least one policy better than any other one: $\pi^{*}$.
 
 \end{frame}
 
 %============================================================================
-\begin{frame}{Recap: Bellmann Optimality Equations}
+\begin{frame}{Bellmann Optimality Equations}
 
    \begin{align*}
 	V^{*}(s)& = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
@@ -177,7 +180,6 @@ The value functions allow us to define a partial ordering over policies.
 \end{frame}
 
 
-\frame{\frametitle{Today's Agenda}\tableofcontents}
 
 \begin{frame}{Dynamic Programming}
 \section{Dynamic Programming}
@@ -206,8 +208,8 @@ This task is called \textcolor{RoyalBlue}{Policy Evaluation}.
 
 
 
-
 \begin{frame}{Control}
+\section{Control}
 
 Improving a policy
 
@@ -460,7 +462,7 @@ The new policy $\pi^{\prime}$ can be found as:
 \end{frame}
 
 \begin{frame}{Policy Iteration}
-\section{Policy Iteration}
+\section{Iterative Dynamic Programming Algorithms}
 
 \begin{align*}
 \pi_0 \; \overset{E}{\longrightarrow} \; V^{\pi_0} \overset{I}\longrightarrow \pi_1 \overset{E}\longrightarrow V^{\pi_1} \overset{I}\longrightarrow . . . \overset{I}\longrightarrow \pi_{*} \overset{E}\longrightarrow V^{\pi_*}
@@ -583,7 +585,6 @@ Initialize $V(s)$, for all $s \in \mathcal{S}$, arbitrarily
 
 %============================================================================
 \begin{frame}{Generalised Policy Iteration}
-\section{Generalised Policy Iteration}
 
 We define generalized policy iteration as the \textcolor{RoyalBlue}{alternative execution of policy evaluation and policy improvement}, regardless of the granularity of the two processes.
 
