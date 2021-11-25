@@ -1,0 +1,5 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Dynamic Programming}{9}{0}{1}
+\beamer@sectionintoc {2}{Policy Evaluation}{14}{0}{2}
+\beamer@sectionintoc {3}{Policy Iteration}{23}{0}{3}
+\beamer@sectionintoc {4}{Generalised Policy Iteration}{27}{0}{4}
