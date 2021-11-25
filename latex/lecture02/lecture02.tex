@@ -523,22 +523,6 @@ From the action preferences, we can define a policy using the \textcolor{RoyalBl
 \end{frame}
 
 
-%\begin{frame}{Gradient Ascent}
-
-%We will optimize the policy by optimizing the preferences. Preferences can be considered as \textcolor{RoyalBlue}{policy parameters}:
-
-%\begin{align*}
-%    \pi_t(a) = \pi_t(a,\theta_{t})
-%\end{align*}
-
-%Gradient ascent: 
-
-%\begin{align*}
-%    \theta_{t+1} = \theta_t + \alpha \nabla_{\theta} \matchcal{E}[R_t | \pi_{\theta}_t]
-%\end{align*}
-
-%\end{frame}
-
 \begin{frame}{Action Preferences}
 
 If at time step $t$ we choose action $a^{\prime}$, we can update the action preferences as:
@@ -551,7 +535,11 @@ H_{t+1}(a) \doteq H_t(a) - \alpha \:  (r_t - \bar r_t) \: \pi_t(a) \; \text{ if 
 
 \vspace{2mm}
 
-Where the formula above is based on the idea of stochastic gradient ascent.
+Where $r_t$ is the reward sampled at time step $t$ and $\bar r_t$ is the average of all the rewards gathered until time step $t$.
+
+\vspace{2mm}
+
+The above formula is based on the idea of \textcolor{RoyalBlue}{stochastic gradient ascent}.
 
 
 \end{frame}
