@@ -184,7 +184,7 @@ There is always at least one policy better than any other one: $\pi^{*}$.
 \begin{frame}{Dynamic Programming}
 \section{Dynamic Programming}
 
-With the term Dynamic Programming we refer to a set of algorithms that, \textcolor{Maroon}{given a model of the environment} $p(s^{\prime}, r| s, a)$, allow us to find the optimal policies.
+With the term Dynamic Programming we refer to a set of algorithms that, \textcolor{Maroon}{given a model of the environment} $p(s^{\prime}| s, a)$, allow us to find the optimal policies.
 
 \vspace{3mm}
 
@@ -278,7 +278,7 @@ Since the above computation is complex, we can compute the value function for a 
 		   & = \sum_a \pi(a|s) \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{k}(s_{t+1}) \big] \; \text{for each } s \in S
 \end{align*}
 
-The sequence $\{V_k\}$ is proven to converge to $V_{\pi}$ as $k \rightarrow \infty $.
+The sequence $\{V_k\}$ is proven to converge to $V^{\pi}$ as $k \rightarrow \infty $.
 
 \end{frame}
 
@@ -287,9 +287,10 @@ The sequence $\{V_k\}$ is proven to converge to $V_{\pi}$ as $k \rightarrow \inf
 \begin{frame}{Gridworld}
 
 \begin{itemize}
-    \item $\mathcal{S}$: 16 states, with 2 terminal ones (0 nd 16)
+    \item $\mathcal{S}$: 16 states, with 2 terminal ones (0 and 15)
     \item $\mathcal{A}$: Four possible actions: $\uparrow$ (up), $\downarrow$ (down), $\leftarrow$ (left), $\rightarrow$ (right)
-\item $\mathcal{R}(s,a)$: $r_t = -1$ for every step in a non-terminal state, 0 in both terminal states
+    \item the function $p(s_{t+1}|s,a)$ is deterministic
+\item $\mathcal{R}(s,a)$: $r_t = -1$ for every step
 \end{itemize}
 
 \begin{figure}[t]
@@ -303,23 +304,46 @@ The sequence $\{V_k\}$ is proven to converge to $V_{\pi}$ as $k \rightarrow \inf
 
 \begin{frame}{Iterative Policy Evaluation}
 
-\begin{small}
-
-We want to evaluate the \textcolor{RoyalBlue}{uniform random policy}, which has probability $0.25$ of taking each of the 4 possible actions.
-
-\begin{align*}
-    V(s_{t+1}) := \sum_a \textcolor{blue}{\pi(a|s)} \sum_{s_{t+1}} \sum_r p(s_{t+1},r|s,a)\Big[\textcolor{orange}{r+\gamma\:V(s_{t+1})}\Big]
-\end{align*}
-\end{small}
 \begin{footnotesize}
+
+Let's evaluate the \textcolor{RoyalBlue}{uniform random policy}, which has probability $0.25$ of taking each of the 4 possible actions. $\gamma = 1$.
+
 \begin{align*}
-    \textcolor{blue}{0.25}\cdot(\textcolor{orange}{-1 + 0}) + \textcolor{blue}{0.25}\cdot(\textcolor{orange}{-1+0}) + \textcolor{blue}{0.25}\cdot(\textcolor{orange}{-1+0})+ \textcolor{blue}{0.25}\cdot(\textcolor{orange}{-1+0}) = -1
+    V^{k+1}(s) := \sum_a \textcolor{blue}{\pi(a|s)} \sum_{s_{t+1},r} p(s_{t+1}|s,a)\Big[\textcolor{orange}{r+\gamma\:V^k(s_{t+1})}\Big]
+\end{align*}
+\begin{align*}
+	V^1(s = 1) = \; & \textcolor{blue}{\pi(\uparrow|s=1)}[\;\textcolor{orange}{-1 + V^0(s=1)}\;] + \textcolor{blue}{\pi(\downarrow|s=1)}[\; \textcolor{orange}{-1+ V^0(s=5)}\; ] \; + \\
+	&\textcolor{blue}{\pi(\leftarrow|s=1)}[\;\textcolor{orange}{-1+ V^0(s=0)}\;] + \textcolor{blue}{\pi(\rightarrow|s=1)}[\;\textcolor{orange}{-1+ V^0(s=2)}\;]
 \end{align*}
 
 \end{footnotesize}
 
 \begin{figure}[t]
-\includegraphics[width=9.7cm]{./images/step00.png}
+\includegraphics[width=9.4cm]{./images/step00.png}
+\centering
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Iterative Policy Evaluation}
+
+
+\begin{footnotesize}
+Let's evaluate the \textcolor{RoyalBlue}{uniform random policy}, which has probability $0.25$ of taking each of the 4 possible actions. $\gamma = 1$.
+
+\begin{align*}
+    V^{k+1}(s) := \sum_a \textcolor{blue}{\pi(a|s)} \sum_{s_{t+1},r} p(s_{t+1}|s,a)\Big[\textcolor{orange}{r+\gamma\:V^k(s_{t+1})}\Big]
+\end{align*}
+
+\begin{align*}
+    V^1(s = 1) = \; &\textcolor{blue}{0.25} \; [\;\textcolor{orange}{-1 + 0}\; ] + \textcolor{blue}{0.25} \; [\;\textcolor{orange}{-1+0}\; ]\; + \\
+    &\textcolor{blue}{0.25} \; [\;\textcolor{orange}{-1+0}\; ] + \textcolor{blue}{0.25} \; [\;\textcolor{orange}{-1+0}\; ] = -1
+\end{align*}
+
+\end{footnotesize}
+
+\begin{figure}[t]
+\includegraphics[width=9.4cm]{./images/step00.png}
 \centering
 \end{figure}
 
@@ -330,23 +354,24 @@ We want to evaluate the \textcolor{RoyalBlue}{uniform random policy}, which has 
 
 \begin{frame}{Iterative Policy Evaluation}
 
-\begin{small}
 
-We want to evaluate the \textcolor{RoyalBlue}{uniform random policy}, which has probability $0.25$ of taking each of the 4 possible actions.
-
-\begin{align*}
-    V(s_{t+1}) := \sum_a \textcolor{blue}{\pi(a|s)} \sum_{s_{t+1}} \sum_r p(s_{t+1},r|s,a)\Big[\textcolor{orange}{r+\gamma\:V(s_{t+1})}\Big]
-\end{align*}
-\end{small}
 \begin{footnotesize}
+Let's evaluate the \textcolor{RoyalBlue}{uniform random policy}, which has probability $0.25$ of taking each of the 4 possible actions.  $\gamma = 1$.
+
 \begin{align*}
-    \textcolor{blue}{0.25}\cdot(\textcolor{orange}{-1 + 0}) + \textcolor{blue}{0.25}\cdot(\textcolor{orange}{-1+0}) + \textcolor{blue}{0.25}\cdot(\textcolor{orange}{-1+0})+ \textcolor{blue}{0.25}\cdot(\textcolor{orange}{-1+0}) = -1
+    V^{k+1}(s) := \sum_a \textcolor{blue}{\pi(a|s)} \sum_{s_{t+1}} \sum_r p(s_{t+1}|s,a)\Big[\textcolor{orange}{r+\gamma\:V^k(s_{t+1})}\Big]
 \end{align*}
+
+\begin{align*}
+    V^1(s = 1) = \; &\textcolor{blue}{0.25} \; [\;\textcolor{orange}{-1 + 0}\; ] + \textcolor{blue}{0.25} \; [\;\textcolor{orange}{-1+0}\; ]\; + \\
+    &\textcolor{blue}{0.25} \; [\;\textcolor{orange}{-1+0}\; ] + \textcolor{blue}{0.25} \; [\;\textcolor{orange}{-1+0}\; ] = -1
+\end{align*}
+
 
 \end{footnotesize}
 
 \begin{figure}[t]
-\includegraphics[width=9.7cm]{./images/step0.png}
+\includegraphics[width=9.4cm]{./images/step0.png}
 \centering
 \end{figure}
 
@@ -358,7 +383,7 @@ We want to evaluate the \textcolor{RoyalBlue}{uniform random policy}, which has 
 
 \begin{small}
 \begin{align*}
-    V(s_{t+1}) := \sum_a \textcolor{blue}{\pi(a|s)} \sum_{s_{t+1}} \sum_r p(s_{t+1},r|s,a)\Big[\textcolor{orange}{r+\gamma\:V(s_{t+1})}\Big]
+    V^{k+1}(s) := \sum_a \textcolor{blue}{\pi(a|s)} \sum_{s_{t+1}} \sum_r p(s_{t+1}|s,a)\Big[\textcolor{orange}{r+\gamma\:V^k(s_{t+1})}\Big]
 \end{align*}
 
 \end{small}
@@ -405,7 +430,7 @@ $\Delta \leftarrow 0$
    
    \vspace{0.7mm}
    
-   \hspace{15mm} $V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{s^{\prime}, r} p(s^{\prime}, r | s, a)[r + \gamma V(s^{\prime})]$
+   \hspace{15mm} $V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{s^{\prime}, r} p(s^{\prime}| s, a)[r + \gamma V(s^{\prime})]$
    
    \vspace{0.7mm}
    
@@ -424,12 +449,14 @@ $\Delta \leftarrow 0$
 %============================================================================
 \begin{frame}{Policy Improvement}
 
-How can we improve our policy once we know its value function?
+What happens if, instead of following policy $\pi$ in state $s$, we decide to take action $a$?
 
 \begin{align*}
     &Q_{\pi}(s,a) = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s, a_t=a,\pi \bigg] \\
-		   & =  \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{k}(s_{t+1}) \big]
+		   & =  \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{\pi}(s_{t+1}) \big]
 \end{align*}
+
+If this vaue is greater than $V^{\pi}(s)$, we should definitely take actions $a$.
 
 \end{frame}
 
@@ -454,7 +481,7 @@ Then policy $\pi^{\prime}$ is as good as or better than $\pi$:
 
 \hspace{1mm}
 
-The new policy $\pi^{\prime}$ can be found as:
+An easy way to find a new policy $\pi^{\prime}$ which is always better than $\pi$ is:
 \begin{align*}
     \pi^{\prime} = \argmax_{a \in A} Q^{\pi}(s,a)
 \end{align*}
@@ -482,7 +509,7 @@ Since a finite MDP has only a finite number of policies, this process must conve
 %\SetAlgoLined
 1) \textbf{\text{Initialization}}
 
-Initialize $V(s) and \pi(s)$ \text{ arbitrarily for all } $s \in S$
+Initialize $V(s)$ and $\pi(s)$ \text{ arbitrarily for all } $s \in S$
 \vspace{3mm}
 
 
@@ -513,7 +540,7 @@ Initialize $V(s) and \pi(s)$ \text{ arbitrarily for all } $s \in S$
  
  \vspace{0.5mm}
  
- \hspace{6mm}if policy-stable = true then return $\pi \sim \pi^{*}$
+ \hspace{6mm}if policy-stable = true then return $\pi \sim \pi^{*}$ and $V \sim V^{*}$
  
 
 \vspace{1mm}
@@ -550,7 +577,7 @@ The policy evaluation step can be \textcolor{RoyalBlue}{truncated} without losin
 
 Define threshold for accuracy $\theta$
 
-Initialize $V(s)$, for all $s \in \mathcal{S}$, arbitrarily
+Initialize $V(s)$ for all $s \in \mathcal{S}$ arbitrarily, except V(terminal) = 0
 
 \vspace{4mm}
 
