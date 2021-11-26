@@ -127,20 +127,32 @@ The \textcolor{RoyalBlue}{state-action value function} $Q^{\pi}(s,a)$:
 		
 \end{frame}
 
+\begin{frame}{Change in Notation}
+
+\begin{block}{Attention!}
+So far we denoted the reward function as $\Re(s, a, s_{t+1})$.
+
+For the sake of simplicity, hereafter we will denote it simply as $r$.
+\end{block}
+\end{frame}
+
+
 
 %============================================================================
 \begin{frame}{Bellman Equations}
 
+
 The \textcolor{RoyalBlue}{state-value function} $V^{\pi}(s)$:
 \begin{align*}
-			V^{\pi}(s) & = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
-			   & = \sum_a \pi(a|s) \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{\pi}(s_{t+1}) \big] 
-		\end{align*}
+V^{\pi}(s) & = \mathds{E} \bigg[\sum_{k=0}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
+   & = \sum_a \pi(a|s) \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{\pi}(s_{t+1}) \big] 
+\end{align*}
 
 The \textcolor{RoyalBlue}{state-action value function} $Q^{\pi}(s,a)$:
 \begin{align*}
 	Q^{\pi}(s,a) & = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
-			   & = \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{\pi}(s_{t+1}) \big] % \gamma \sum_{a_{t+1}} \pi(a_{t+1}|s_{t+1}) Q^{\pi}(s_{t+1}, a_{t+1}) \big]
+	& = \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{\pi}(s_{t+1}) \big] \\
+	& = \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma \sum_{a_{t+1}} \pi(a_{t+1}|s_{t+1}) Q^{\pi}(s_{t+1}, a_{t+1}) \big]
 \end{align*}
 		
 \end{frame}
@@ -167,13 +179,15 @@ There is always at least one policy better than any other one: $\pi^{*}$.
 %============================================================================
 \begin{frame}{Bellmann Optimality Equations}
 
+
+
    \begin{align*}
-	V^{*}(s)& = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
+	V^{*}(s)& = \mathds{E} \bigg[\sum_{k=0}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
 		   & = \max_a \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{*}(s_{t+1}) \big] 
 	\end{align*}
 	
 	   \begin{align*}
-	Q^{*}(s,a)& = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s, a_t=a,\pi \bigg] \\
+	Q^{*}(s,a)& = \mathds{E} \bigg[\sum_{k=0}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s, a_t=a,\pi \bigg] \\
 		   & = \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma \max_{a_{t+1}}Q^{*}(s_{t+1}, a_{t+1}) \big] 
 	\end{align*}
 
@@ -184,17 +198,18 @@ There is always at least one policy better than any other one: $\pi^{*}$.
 \begin{frame}{Dynamic Programming}
 \section{Dynamic Programming}
 
-With the term Dynamic Programming we refer to a set of algorithms that, \textcolor{Maroon}{given a model of the environment} $p(s^{\prime}| s, a)$, allow us to find the optimal policies.
+With the term Dynamic Programming we refer to a set of algorithms that, \textcolor{Maroon}{given a model of the environment} $p(s_{t+1}| s, a)$, allow us to find the optimal policies.
 
 \vspace{3mm}
 
+\begin{block}{Key Idea}
 The key idea of Dynamic Programming is the \textcolor{RoyalBlue}{use of the Bellman equations to organize the search for good policies}.
-
+\end{block}
 \end{frame}
 
 \begin{frame}{Dynamic Programming}
 
-The goal of Reinforcement Learning is to find the optimal policy $\pi(a|s)$ for each $s \in S$ for a given problem. 
+The goal of Reinforcement Learning is to find the optimal policy $\pi(a|s)$ for each $s \in \mathcal{S}$ for a given problem. 
 
 This task is called \textcolor{RoyalBlue}{Control}.
 
@@ -252,12 +267,12 @@ Improving a policy
 
 \vspace{2mm}
 
-If the environment dynamic is completely known, this problem is reduced to find the solution to a set of $\mathcal{|S|}$ linear equations:
+If the environment dynamic is completely known, this problem is reduced to finding the solution to a set of $\mathcal{|S|}$ linear equations:
 
 
 
 \begin{align*}
-    V^{\pi}(s)& = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
+    V^{\pi}(s)& = \mathds{E} \bigg[\sum_{k=0}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
 		   & = \sum_a \pi(a|s) \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{\pi}({s_{t+1}}) \big] 
 \end{align*}
 
@@ -274,7 +289,7 @@ Since the above computation is complex, we can compute the value function for a 
 \end{itemize}
 
 \begin{align*}
-    &V^{k+1}(s) = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
+    &V^{k+1}(s) = \mathds{E} \bigg[\sum_{k=0}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s,\pi \bigg] \\
 		   & = \sum_a \pi(a|s) \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{k}(s_{t+1}) \big] \; \text{for each } s \in S
 \end{align*}
 
@@ -290,7 +305,7 @@ The sequence $\{V_k\}$ is proven to converge to $V^{\pi}$ as $k \rightarrow \inf
     \item $\mathcal{S}$: 16 states, with 2 terminal ones (0 and 15)
     \item $\mathcal{A}$: Four possible actions: $\uparrow$ (up), $\downarrow$ (down), $\leftarrow$ (left), $\rightarrow$ (right)
     \item the function $p(s_{t+1}|s,a)$ is deterministic
-\item $\mathcal{R}(s,a)$: $r_t = -1$ for every step
+\item $\Re(s,a)$: $r_t = -1$ for every step
 \end{itemize}
 
 \begin{figure}[t]
@@ -422,7 +437,7 @@ $\Delta \leftarrow 0$
 
  \textbf{\text{while}} \text{True} 
 
- \hspace{5mm}  \textbf{\text{for}} \text{each} $s \in S$
+ \hspace{5mm}  \textbf{\text{for}} \text{each} $s \in \mathcal{S}$
    
    \vspace{0.5mm}
    
@@ -430,7 +445,7 @@ $\Delta \leftarrow 0$
    
    \vspace{0.7mm}
    
-   \hspace{15mm} $V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{s^{\prime}, r} p(s^{\prime}| s, a)[r + \gamma V(s^{\prime})]$
+   \hspace{15mm} $V(s) \leftarrow \sum_{a} \pi(a|s) \sum_{s^{\prime}, r} p(s_{t+1}| s, a)[r + \gamma V(s_{t+1})]$
    
    \vspace{0.7mm}
    
@@ -452,11 +467,11 @@ $\Delta \leftarrow 0$
 What happens if, instead of following policy $\pi$ in state $s$, we decide to take action $a$?
 
 \begin{align*}
-    &Q_{\pi}(s,a) = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s, a_t=a,\pi \bigg] \\
+    &Q^{\pi}(s,a) = \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s, a_t=a,\pi \bigg] \\
 		   & =  \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{\pi}(s_{t+1}) \big]
 \end{align*}
 
-If this vaue is greater than $V^{\pi}(s)$, we should definitely take actions $a$.
+If this value is greater than $V^{\pi}(s)$, we should definitely take action $a$.
 
 \end{frame}
 
@@ -509,7 +524,7 @@ Since a finite MDP has only a finite number of policies, this process must conve
 %\SetAlgoLined
 1) \textbf{\text{Initialization}}
 
-Initialize $V(s)$ and $\pi(s)$ \text{ arbitrarily for all } $s \in S$
+Initialize $V(s)$ and $\pi(s)$ \text{ arbitrarily for all } $s \in \mathcal{S}$
 \vspace{3mm}
 
 
@@ -532,7 +547,7 @@ Initialize $V(s)$ and $\pi(s)$ \text{ arbitrarily for all } $s \in S$
  
  \vspace{0.5mm}
  
- \hspace{11mm} $\pi(s) \leftarrow \argmax_a \sum_{s_{t+1}} p(s_{t+1}|s,a) [r + \gamma V(s^{t+1})]$
+ \hspace{11mm} $\pi(s) \leftarrow \argmax_a \sum_{s_{t+1}} p(s_{t+1}|s,a) [r + \gamma V(s_{t+1})]$
  
  \vspace{0.5mm}
  
@@ -558,7 +573,7 @@ The policy evaluation step can be \textcolor{RoyalBlue}{truncated} without losin
 
 \begin{align*}
     &V^{k+1}(s) = \max_a \;  \mathds{E} \bigg[\sum_{k}^{\infty}\gamma^{k} r_{t+k+1} \: \bigg| \: s_t=s, a_t = a \bigg] \\
-		   & = \max_a \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{k}(s_{t+1}) \big] \; \text{for each } s \in S
+		   & = \max_a \sum_{s_{t+1}} p(s_{t+1}|s,a)\big[r + \gamma V^{k}(s_{t+1}) \big] \; \text{for each } s \in \mathcal{S}
 \end{align*}
 
 
@@ -625,7 +640,7 @@ This process stabilizes only when we found a policy that is greedy with respect 
 \begin{frame}{Final Slide!}
 	\begin{takeaway}{Lecture Takeaway}
 		\begin{enumerate}
-			\item Given $p(s^{\prime}|s,a)$ we can find the optimal policy mathematically
+			\item Given $p(s_{t+1}|s,a)$ we can find the optimal policy mathematically
 			\item But better use Dynamic Programming algorithms
 			\item It works by alternating the tasks of Policy Evaluation and Control
 		\end{enumerate}

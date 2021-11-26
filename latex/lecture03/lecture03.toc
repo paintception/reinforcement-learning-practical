@@ -1,6 +1,6 @@
 \babel@toc {english}{}
 \beamer@sectionintoc {1}{Value Functions}{5}{0}{1}
-\beamer@sectionintoc {2}{Dynamic Programming}{9}{0}{2}
-\beamer@sectionintoc {3}{Control}{11}{0}{3}
-\beamer@sectionintoc {4}{Policy Evaluation}{14}{0}{4}
-\beamer@sectionintoc {5}{Iterative Dynamic Programming Algorithms}{24}{0}{5}
+\beamer@sectionintoc {2}{Dynamic Programming}{10}{0}{2}
+\beamer@sectionintoc {3}{Control}{12}{0}{3}
+\beamer@sectionintoc {4}{Policy Evaluation}{15}{0}{4}
+\beamer@sectionintoc {5}{Iterative Dynamic Programming Algorithms}{25}{0}{5}
