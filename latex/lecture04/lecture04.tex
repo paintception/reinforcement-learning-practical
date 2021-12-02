@@ -68,13 +68,24 @@
 
 
 \begin{frame}{Recap}
+
+	Last lecture we have seen the \textcolor{RoyalBlue}{Dynamic Programming} family of algorithms:
+	
 	\begin{block}{Key Concepts}
+		\begin{itemize}
+			\item We have seen what it means to \textcolor{RoyalBlue}{evaluate} a policy $\pi$
+			\item Why this task is necessary to be able to \textcolor{RoyalBlue}{improve} $\pi$
+			\item How to learn value functions \textcolor{RoyalBlue}{iteratively}
+			\item The \textcolor{RoyalBlue}{important role} of the Bellman optimality equations
+		\end{itemize}
+		
 	\end{block}
+
 \end{frame}
 
 \begin{frame}{Model-Free Reinforcement Learning}
 	\section{Model-Free Reinforcement Learning}
-	So far we have seen:
+	We have therefore derived:
 
 	\begin{itemize}
 		\item How to \textcolor{RoyalBlue}{estimate} an optimal value function and \textcolor{RoyalBlue}{discover} an optimal policy $\pi^*$ 
@@ -244,17 +255,17 @@
 \begin{frame}{Temporal Difference (TD) Learning}
 	\section{Temporal Difference Learning}
 	\begin{center}
-		\textit{"The simplest and most elegant idea idea of Reinforcement Learning ..."}
+		\textit{"The simplest and most elegant idea of Reinforcement Learning ..."}
 	\end{center}
 \end{frame}
 
 
 \begin{frame}{Temporal Difference (TD) Learning}
-	With TD-Learning methods we \textcolor{Maroon}{we do not} have to wait until the end of an episode before updating a value estimate
+	With TD-Learning methods we \textcolor{Maroon}{do not} have to wait until the end of an episode before updating a value estimate
 	\begin{itemize}
 		\item We only need to wait until the \textcolor{RoyalBlue}{next step}
 		\item At $t+1$ we immediately create a \textcolor{RoyalBlue}{target} for learning called the TD-target
-		\item We do this by using the observed reward $r_t$ and the estimate $V(s_{t+1})$
+		\item We do this by using the observed reward \textcolor{RoyalBlue}{$r_t$} and a future value estimate e.g. \textcolor{RoyalBlue}{$V(s_{t+1})$}
 	\end{itemize}	
 \end{frame}
 
@@ -303,7 +314,7 @@
 	\end{align*}
 	Therefore we \textcolor{RoyalBlue}{replace} it with a guess instead:
 	\begin{align*}
-		V(s_t):= V(s_t) + \alpha \big[r_t + \gamma \textcolor{green}{V(s_{t+1})} - V(s_t)\big].
+		V(s_t):= V(s_t) + \alpha \big[r_t + \gamma \textcolor{RoyalBlue}{V(s_{t+1})} - V(s_t)\big].
 	\end{align*}
 	
 \end{frame}
@@ -349,6 +360,8 @@
 	\textcolor{RoyalBlue}{\textit{We are learning by guessing!}}
 	\end{center}
 
+	\bigskip
+
 	\begin{itemize}
 		\item We want to learn $V(s_t)$ with respect to $V(s_{t+1})$
 		\item But $V(s_{t+1})$ is as unknown as $V(s_t)$
@@ -356,7 +369,7 @@
 	\end{itemize}
 
 	\begin{align*}
-		V(s_t) & := \underbrace{V(s_t) + \alpha \big[r_t + \gamma V(s_{t+1})}_{\textcolor{blue}{\delta_t}} - V(s_t)\big] \\
+		V(s_t) & := V(s_t) + \alpha \big[\underbrace{r_t + \gamma V(s_{t+1})-V(s_t)}_{\textcolor{blue}{\delta_t}}\big] \\
 	\end{align*}
 \end{frame}
 
@@ -400,7 +413,7 @@
 	How does Q-Learning work?
 
 	\begin{align*}
-		Q(s_t,a_t):=\underbrace{Q(s_t,a_t) + \alpha\Big[r_t + \gamma \:\underset{a\in \mathcal{A}}{\max} Q(s_{t+1},a_t)}_{\textcolor{blue}{\delta_t}} - Q(s_t, a_t) \Big]
+		Q(s_t,a_t):=Q(s_t,a_t) + \alpha\Big[\underbrace{r_t + \gamma \:\underset{a\in \mathcal{A}}{\max} Q(s_{t+1},a_t) - Q(s_t, a_t)}_{\textcolor{blue}{\delta_t}}\Big]
 	\end{align*}
 
 	\begin{itemize}
@@ -443,7 +456,7 @@
 
 		\begin{itemize}
 			\item \onslide<+-> We \textcolor{Maroon}{do not use} the $\max$ operator anymore
-			\item \onslide<+-> We learn with respect to the next state visited by the agent $s_{t+1}$ which might or \textcolor{Maroon}{might not} (important!) correspond to a greedy policy
+			\item \onslide<+-> We learn with respect to the next state that is visited by the agent $s_{t+1}$, which might or \textcolor{Maroon}{might not} (important!) correspond to a greedy policy
 			\item \onslide<+-> As we are always taking into account the actions chosen by the agent $Q(s_{t+1}, a_{t+1})$ we learn $\rightarrow$ \textit{on-policy}
 		\end{itemize}
 
@@ -473,7 +486,7 @@
 \begin{frame}{Temporal Difference (TD) Learning}
 	
 	\begin{takeaway}{Quiz Time!}
-		Imagine an algorithm which jointly learns the state-value function $V^{\pi}(s)$ as follows 
+		Imagine an algorithm which learns the state-value function $V^{\pi}(s)$ as follows 
 		\begin{align*}
 			V(s):= V(s) + \alpha \big[r_{t} + \gamma V(s_{t+1}) - V(s_t) \big]
 		\end{align*}
@@ -494,7 +507,7 @@
 \begin{frame}{Temporal Difference (TD) Learning}
 	
 	\begin{takeaway}{Quiz Time!}
-		Now imagine an algorithm which jointly learns the state-value function $V^{\pi}(s)$ as follows 
+		Now imagine an algorithm which learns the state-value function $V^{\pi}(s)$ as follows 
 		\begin{align*}
 			V(s):= V(s) + \alpha \big[r_{t} + \gamma \: \underset{a\in \mathcal{A}}{\max}Q(s_{t+1},a_t) - V(s_t) \big]
 		\end{align*}
@@ -507,7 +520,7 @@
 
 	\begin{itemize}
 		\item What is the TD-target of this algorithm?
-		\item Is this an \textit{off-policy} or \textit{on-policy} learning algorithm?
+		\item Is this an \textit{off-policy} or an \textit{on-policy} learning algorithm?
 	\end{itemize}
 
 
@@ -527,7 +540,7 @@
 
 	\bigskip
 
-	TD-Learning methods empirically work better but a formal proof about why this is the case is missing ...
+	$\Rightarrow$ TD-Learning methods empirically work better than MC algorithms but a formal proof about why this is the case is missing ...
 
 \end{frame}
 
