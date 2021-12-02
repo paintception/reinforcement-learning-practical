@@ -295,7 +295,7 @@
 	\begin{align*}
 		V(s_t):= V(s_t) + \alpha \big[r_t + \gamma V^{\pi}(s_{t+1}) - V(s_t)\big].
 	\end{align*}
-	Therefore we \textcolor{RoyalBlue}{replace} with a guess instead:
+	Therefore we \textcolor{RoyalBlue}{replace} it with a guess instead:
 	\begin{align*}
 		V(s_t):= V(s_t) + \alpha \big[r_t + \gamma V(s_{t+1}) - V(s_t)\big].
 	\end{align*}
@@ -475,7 +475,7 @@
 
 		\begin{itemize}
 			\item We \textcolor{Maroon}{do not use} the $\max$ operator anymore
-			\item We learn with respect to the next state visited by the agent $s_{t+1}$ which might or \textcolor{Maroon}{might not} (important!) correspond to a greedy policy
+			\item We learn with respect to the next state that is visited by the agent $s_{t+1}$, which might or \textcolor{Maroon}{might not} (important!) correspond to a greedy policy
 			\item As we are always taking into account the actions chosen by the agent $Q(s_{t+1}, a_{t+1})$ we learn $\rightarrow$ \textit{on-policy}
 		\end{itemize}
 
