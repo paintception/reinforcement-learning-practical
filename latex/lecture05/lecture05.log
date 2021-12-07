@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.5)  7 DEC 2021 12:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.5)  7 DEC 2021 16:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -941,6 +941,20 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \TX@cols=\count333
 \TX@ftn=\toks46
 )
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
+Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
+LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.gr
 oupplots.code.tex
 \pgfplots@group@current@plot=\count334
@@ -1179,22 +1193,22 @@ LaTeX Warning: Label `eq:q_learning' multiply defined.
 )
 \openout1 = `lecture05.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1254,7 +1268,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box131
-Package hyperref Info: Link coloring OFF on input line 61.
+Package hyperref Info: Link coloring OFF on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1267,56 +1281,56 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count354
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
+LaTeX Info: Redefining \ref on input line 64.
+LaTeX Info: Redefining \pageref on input line 64.
+LaTeX Info: Redefining \nameref on input line 64.
 
 (./lecture05.out) (./lecture05.out)
 \@outlinefile=\write5
 \openout5 = `lecture05.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmbr/m/n --> OT1/cmss/m/n on input line 61.
+(Font)                  OT1/cmbr/m/n --> OT1/cmss/m/n on input line 64.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmbr/m/n --> OT1/cmss/b/n on input line 61.
+(Font)                  OT1/cmbr/m/n --> OT1/cmss/b/n on input line 64.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 61.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmbr/bx/n --> OT1/cmbr/b/n on input line 61.
+(Font)                  OT1/cmbr/bx/n --> OT1/cmbr/b/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmbr/bx/n --> OT1/cmbr/b/n on input line 61.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 61.
+(Font)                  OT1/cmbr/bx/n --> OT1/cmbr/b/n on input line 64.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmbr/m/n on input line 61.
+(Font)                  OT1/cmss/m/n --> OT1/cmbr/m/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmbr/m/n on input line 61.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 61.
+(Font)                  OT1/cmss/bx/n --> OT1/cmbr/m/n on input line 64.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmbr/m/sl --> OT1/cmbr/m/it on input line 61.
+(Font)                  OT1/cmbr/m/sl --> OT1/cmbr/m/it on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmbr/m/sl --> OT1/cmbr/m/it on input line 61.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 61.
+(Font)                  OT1/cmbr/m/sl --> OT1/cmbr/m/it on input line 64.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtl/m/n --> OT1/cmtl/m/n on input line 61.
+(Font)                  OT1/cmtl/m/n --> OT1/cmtl/m/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtl/m/n --> OT1/cmtl/m/n on input line 61.
+(Font)                  OT1/cmtl/m/n --> OT1/cmtl/m/n on input line 64.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmbr/m/n --> OT1/cmbr/b/n on input line 61.
+(Font)                  OT1/cmbr/m/n --> OT1/cmbr/b/n on input line 64.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmbr/m/it --> OT1/cmbr/b/it on input line 61.
+(Font)                  OT1/cmbr/m/it --> OT1/cmbr/b/it on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 61.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmbr/b/n --> OT1/cmbr/b/n on input line 61.
+(Font)                  OT1/cmbr/b/n --> OT1/cmbr/b/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmbr/m/n --> OT1/cmbr/b/n on input line 61.
+(Font)                  OT1/cmbr/m/n --> OT1/cmbr/b/n on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmbr/m/it --> OT1/cmbr/b/it on input line 61.
+(Font)                  OT1/cmbr/m/it --> OT1/cmbr/b/it on input line 64.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtl/m/n --> OT1/cmtl/b/n on input line 61.
+(Font)                  OT1/cmtl/m/n --> OT1/cmtl/b/n on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translator/translator-basic-dictionary
 -English.dict
@@ -1346,123 +1360,123 @@ Dictionary: translator-theorem-dictionary, Language: English
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.16} into 
 your preamble.
- on input line 61.
+ on input line 64.
 
 (./lecture05.nav) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-[2
-
-] (./lecture05.toc) [3
-
-]
 LaTeX Font Info:    Trying to load font information for OML+cmbrm on input line
- 90.
+ 81.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cmbright/omlcmbrm.fd
 File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
 )
 LaTeX Font Info:    Trying to load font information for OMS+cmbrs on input line
- 90.
+ 81.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cmbright/omscmbrs.fd
 File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
 )
-LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 90.
-LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <8> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 90.
+LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <9> not available
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 81.
 LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <6> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 90.
-LaTeX Font Info:    Trying to load font information for U+eus on input line 90.
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 81.
+LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <5> not available
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 81.
+LaTeX Font Info:    Trying to load font information for U+eus on input line 81.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
-) [4
+) [2
+
+] (./lecture05.toc) [3
 
 ]
-<./Images/Go_board.jpg, id=83, 602.25pt x 318.18875pt>
+LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 105.
+
+LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <8> not available
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 105.
+
+ [4
+
+]
+<./Images/Go_board.jpg, id=96, 602.25pt x 318.18875pt>
 File: ./Images/Go_board.jpg Graphic file (type jpg)
 <use ./Images/Go_board.jpg>
-Package pdftex.def Info: ./Images/Go_board.jpg  used on input line 101.
+Package pdftex.def Info: ./Images/Go_board.jpg  used on input line 116.
 (pdftex.def)             Requested size: 295.90877pt x 156.34595pt.
  [5
 
  <./Images/Go_board.jpg>] [6
 
 ]
-<./Images/nature.jpg, id=95, 481.8pt x 529.98pt>
+<./Images/nature.jpg, id=108, 481.8pt x 529.98pt>
 File: ./Images/nature.jpg Graphic file (type jpg)
 <use ./Images/nature.jpg>
-Package pdftex.def Info: ./Images/nature.jpg  used on input line 137.
+Package pdftex.def Info: ./Images/nature.jpg  used on input line 152.
 (pdftex.def)             Requested size: 142.26378pt x 156.4883pt.
  [7
 
  <./Images/nature.jpg>]
-<./Images/games.png, id=102, 1228.59pt x 525.965pt>
+<./Images/games.png, id=115, 1228.59pt x 525.965pt>
 File: ./Images/games.png Graphic file (type png)
 <use ./Images/games.png>
-Package pdftex.def Info: ./Images/games.png  used on input line 150.
+Package pdftex.def Info: ./Images/games.png  used on input line 165.
 (pdftex.def)             Requested size: 227.62204pt x 97.44646pt.
  [8
 
  <./Images/games.png>]
 LaTeX Font Info:    Trying to load font information for OT1+cmtl on input line 
-166.
-
-(/usr/share/texlive/texmf-dist/tex/latex/cmbright/ot1cmtl.fd
+181.
+ (/usr/share/texlive/texmf-dist/tex/latex/cmbright/ot1cmtl.fd
 File: ot1cmtl.fd 2005/04/13 v8.1 (WaS)
 )
-<./Images/pong.png, id=110, 895.345pt x 463.7325pt>
+<./Images/pong.png, id=123, 895.345pt x 463.7325pt>
 File: ./Images/pong.png Graphic file (type png)
 <use ./Images/pong.png>
-Package pdftex.def Info: ./Images/pong.png  used on input line 166.
+Package pdftex.def Info: ./Images/pong.png  used on input line 181.
 (pdftex.def)             Requested size: 227.62204pt x 117.89288pt.
- [9
+
+[9
 
  <./Images/pong.png>]
-LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <9> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 181.
-
-LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <5> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 181.
-
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <9> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 181.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 196.
 
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <6> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 181.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 196.
 
 
 
 LaTeX Font Warning: Font shape `OT1/cmbr/bx/n' in size <6> not available
-(Font)              Font shape `OT1/cmbr/m/n' tried instead on input line 181.
+(Font)              Font shape `OT1/cmbr/m/n' tried instead on input line 196.
 
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <5> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 181.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 196.
 
 
 LaTeX Font Warning: Font shape `OT1/cmbr/bx/n' in size <5> not available
-(Font)              Font shape `OT1/cmbr/m/n' tried instead on input line 181.
+(Font)              Font shape `OT1/cmbr/m/n' tried instead on input line 196.
 
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-81.
+96.
 (/usr/share/texlive/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 ) [10
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 198.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 213.
 
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <8> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 198.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 213.
 
 
 
 LaTeX Font Warning: Font shape `OT1/cmbr/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmbr/m/n' tried instead on input line 198.
+(Font)              Font shape `OT1/cmbr/m/n' tried instead on input line 213.
 
 [11
 
@@ -1471,15 +1485,15 @@ LaTeX Font Warning: Font shape `OT1/cmbr/bx/n' in size <8> not available
 ]
 
 LaTeX Font Warning: Font shape `OT1/cmbr/m/sc' undefined
-(Font)              using `OT1/cmbr/m/n' instead on input line 230.
+(Font)              using `OT1/cmbr/m/n' instead on input line 245.
 
-<./Images/p.png, id=148, 491.8375pt x 632.3625pt>
+<./Images/p.png, id=149, 491.8375pt x 632.3625pt>
 File: ./Images/p.png Graphic file (type png)
 <use ./Images/p.png>
-Package pdftex.def Info: ./Images/p.png  used on input line 230.
+Package pdftex.def Info: ./Images/p.png  used on input line 245.
 (pdftex.def)             Requested size: 113.81102pt x 146.32802pt.
 
-Overfull \vbox (2.67107pt too high) detected at line 230
+Overfull \vbox (2.67107pt too high) detected at line 245
  []
 
 [13
@@ -1506,10 +1520,10 @@ Overfull \vbox (2.67107pt too high) detected at line 230
 <./Images/tdgammon.jpg, id=206, 867.24pt x 318.18875pt>
 File: ./Images/tdgammon.jpg Graphic file (type jpg)
 <use ./Images/tdgammon.jpg>
-Package pdftex.def Info: ./Images/tdgammon.jpg  used on input line 384.
+Package pdftex.def Info: ./Images/tdgammon.jpg  used on input line 401.
 (pdftex.def)             Requested size: 312.9803pt x 114.8343pt.
 
-Overfull \hbox (17.07153pt too wide) in paragraph at lines 384--384
+Overfull \hbox (17.07153pt too wide) in paragraph at lines 401--401
  [][] 
  []
 
@@ -1521,7 +1535,7 @@ Overfull \hbox (17.07153pt too wide) in paragraph at lines 384--384
 <./Images/dqn.png, id=217, 853.1875pt x 371.3875pt>
 File: ./Images/dqn.png Graphic file (type png)
 <use ./Images/dqn.png>
-Package pdftex.def Info: ./Images/dqn.png  used on input line 409.
+Package pdftex.def Info: ./Images/dqn.png  used on input line 427.
 (pdftex.def)             Requested size: 284.52756pt x 123.85597pt.
  [25
 
@@ -1535,14 +1549,14 @@ Package pdftex.def Info: ./Images/dqn.png  used on input line 409.
 g}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.477 \end{frame}
+l.495 \end{frame}
                   [29
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{eq:q_learnin
 g}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.502 \end{frame}
+l.520 \end{frame}
                   [30
 
 ] [31
@@ -1554,12 +1568,14 @@ l.502 \end{frame}
 ] [34
 
 ]
-Overfull \vbox (0.88583pt too high) detected at line 609
+Overfull \vbox (0.88583pt too high) detected at line 627
  []
 
 [35
 
 ] [36
+
+] [37
 
 ]
 \tf@nav=\write6
@@ -1571,11 +1587,11 @@ Overfull \vbox (0.88583pt too high) detected at line 609
 \tf@snm=\write8
 \openout8 = `lecture05.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 619.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 619.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 656.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 656.
  (./lecture05.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 619.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 619.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 656.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 656.
 Package rerunfilecheck Info: File `lecture05.out' has not changed.
 (rerunfilecheck)             Checksum: 27566516D2751F7E33EAC3BD3B8F97A8;158.
 
@@ -1587,13 +1603,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 34828 strings out of 482543
- 832086 string characters out of 5955241
- 1231615 words of memory out of 5000000
- 49016 multiletter control sequences out of 15000+600000
- 547022 words of font info for 82 fonts, out of 8000000 for 9000
+ 34884 strings out of 482543
+ 832956 string characters out of 5955241
+ 1232170 words of memory out of 5000000
+ 49058 multiletter control sequences out of 15000+600000
+ 547712 words of font info for 84 fonts, out of 8000000 for 9000
  497 hyphenation exceptions out of 8191
- 64i,22n,103p,776b,665s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,22n,103p,776b,666s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/
@@ -1616,10 +1632,10 @@ blic/hfbright/hfbrsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hf
 bright/hfbrsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/h
 fbrsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/hftl10.pf
 b>
-Output written on lecture05.pdf (36 pages, 1305373 bytes).
+Output written on lecture05.pdf (37 pages, 1311456 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 274 compressed objects within 3 object streams
- 77 named destinations out of 1000 (max. 500000)
+ 384 PDF objects out of 1000 (max. 8388607)
+ 282 compressed objects within 3 object streams
+ 79 named destinations out of 1000 (max. 500000)
  222 words of extra memory for PDF output out of 10000 (max. 10000000)
 

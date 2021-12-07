@@ -14,6 +14,9 @@
 \usepackage{cmbright}
 \usepackage{framed}
 \usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage{pifont}
+
 
 \usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
 \usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
@@ -26,7 +29,7 @@
 \usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
 \usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
 
-
+\newcommand{\xmark}{\ding{55}}
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
@@ -64,6 +67,17 @@
 
 \begin{frame}{Recap}
 
+	Last week we have seen ...
+	\begin{block}{Model-Free Reinforcement Learning}
+		\begin{itemize}
+			\item How to construct algorithms when parts of the MDP $\mathcal{M}$ are unknown
+			\item Monte-Carlo (MC) Learning
+			\item Temporal-Difference (TD) Learning
+			\item The concept of bootstrapping
+			\item How to learn $Q^{\pi}(s,a)$ in an \textit{on-policy} fashion or in an \textit{off-policy} fashion
+		\end{itemize}
+	\end{block}
+
 \end{frame}
 
 
@@ -84,6 +98,7 @@
 	\begin{enumerate}
 		\item Unfeasible when the state-action space is large
 		\item Impossible to use in a continous setting
+		\item Requires a discretization of the environment
 		\item Lacks generalization
 	\end{enumerate}
 
@@ -160,14 +175,14 @@
 	\begin{itemize}
 		\item All states look very \textcolor{RoyalBlue}{similar} among each other
 		\item Small portions of the state-space are actually \textcolor{RoyalBlue}{informative}
-		\item Despite some pre-proessing operations the state-space stays \textcolor{RoyalBlue}{highly dimensional}
+		\item Despite some pre-processing operations the state-space stays \textcolor{RoyalBlue}{highly dimensional}
 	\end{itemize}
 
 \end{frame}
 
 
 \begin{frame}{Function Approximation}
-	Fortunately we can \textcolor{RoyalBlue}{overcome} the aforementioned \textcolor{Maroon}{issues} by including a function approximator in the reinforcement learning cooking recipe
+	Fortunately we can \textcolor{RoyalBlue}{overcome} the aforementioned \textcolor{Maroon}{issues} by including a function approximator in the reinforcement learning cooking recipe!
 	\begin{block}{Function Approximators}
 		We \textcolor{Maroon}{do not} represent a value function as a table anymore, but rather with a \textcolor{RoyalBlue}{parametrized functional form} with weight vector $\mathbf{w}\in\mathds{R}^{d}$.
 
@@ -182,7 +197,7 @@
 
 \begin{frame}{Function Approximation}
 
-	We will see that $V(s;\mathbf{w})$ can come in numerous forms but the \textcolor{Maroon}{key} ideas behind using a function approximator are the same:
+	We will see that $V(s;\mathbf{w})$ can come in numerous forms but the \textcolor{Maroon}{key} ideas behind using a function approximator are always the same:
 	\begin{enumerate}
 		\item We want to \textcolor{RoyalBlue}{overcome} the computational burdens that come from large state $|\mathcal{S}|$ and action $|\mathcal{A}|$ spaces
 		\item We wish to \textcolor{RoyalBlue}{represent} states through informative features
@@ -190,7 +205,6 @@
 	\end{enumerate}
 
 	\bigskip
-
 
 	$\Rightarrow$ Now that we have built some intuition around why function approximation is useful let us dive deeper into this family of techniques ...
 
@@ -377,6 +391,8 @@
 
 
 \begin{frame}{Neural Networks}
+	Some Reinforcement Learning history ...
+	\bigskip
 
 	\centering
 		\includegraphics[width=11cm]{./Images/tdgammon}
@@ -397,6 +413,7 @@
 	$\Rightarrow$ Let's see how DQN intuitively works!
 
 \end{frame}
+
 
 \begin{frame}{Neural Networks}
 
@@ -602,9 +619,28 @@
 
 	\begin{block}{The DQN Algorithm}
 		\begin{multline*}
-			\mathcal{L}(\theta) = \textcolor{skymagenta}{\mathds{E}_{\langle s_{t},a_{t},r_{t},s_{t+1}\rangle\sim U(D)}} \bigg[\textcolor{blue}{\big(}r_{t} + \gamma \: \underset{a\in \mathcal{A}}{\max}\: Q(s_{t+1}, a; \theta^{-}) - Q(s_{t}, a_{t}; \theta) \textcolor{blue}{\big)^{2}}\bigg]
+			\mathcal{L}(\theta) = \textcolor{skymagenta}{\mathds{E}_{\langle s_{t},a_{t},r_{t},s_{t+1}\rangle\sim U(D)}} \bigg[\big(r_{t} + \gamma \: \underset{a\in \mathcal{A}}{\max}\: Q(s_{t+1}, a; \theta^{-}) - Q(s_{t}, a_{t}; \theta) \big)^{2}\bigg]
 		\end{multline*}
 	\end{block}
+
+\end{frame}
+
+\begin{frame}{Neural Networks}
+
+	$\Rightarrow$ The Experience Replay memory buffer plays a \textcolor{Maroon}{crucial role} in DRL: without it, it would be impossible to train an agent
+
+	\bigskip
+
+	\begin{enumerate}
+		\item It makes agents more \textcolor{RoyalBlue}{sample efficient} $\textcolor{green}{\checkmark}$
+		\item Helps \textcolor{RoyalBlue}{generalization} $\textcolor{green}{\checkmark}$ 
+		\item Goes against the principle of online learning $X$
+		\item Reinforcement learning $\rightarrow$ Supervised learning
+	\end{enumerate}
+
+	\bigskip 
+
+	Is only one among the many more "tricks" that are necessary to successfully combine Reinforcement Learning algorithms with deep neural networks.
 
 \end{frame}
 
