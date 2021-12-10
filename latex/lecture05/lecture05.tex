@@ -189,7 +189,7 @@
 
 		Therefore we are now interested in learning:
 		\begin{align*}
-			V^{\pi}(s) \approx V^{\pi}(s;\mathbf{w})
+			V^{\pi}(s) \approx \hat{V}^{\pi}(s;\mathbf{w})
 		\end{align*}
 	\end{block}
 
@@ -197,7 +197,7 @@
 
 \begin{frame}{Function Approximation}
 
-	We will see that $V(s;\mathbf{w})$ can come in numerous forms but the \textcolor{Maroon}{key} ideas behind using a function approximator are always the same:
+	We will see that $\hat{V}(s;\mathbf{w})$ can come in numerous forms but the \textcolor{Maroon}{key} ideas behind using a function approximator are always the same:
 	\begin{enumerate}
 		\item We want to \textcolor{RoyalBlue}{overcome} the computational burdens that come from large state $|\mathcal{S}|$ and action $|\mathcal{A}|$ spaces
 		\item We wish to \textcolor{RoyalBlue}{represent} states through informative features
@@ -270,7 +270,7 @@
 
 	\begin{itemize}
 		\item We have a weight vector $\mathbf{w}\doteq(w_1, w_2, ..., w_d)$ of real values parametrizing our function approximator
-		\item The approximate value function $\approx V^{\pi}(s;\mathbf{w})$ is a differentiable function of $\mathbf{w}$ for all $s\in\mathcal{S}$
+		\item The approximate value function $\approx \hat{V}^{\pi}(s;\mathbf{w})$ is a differentiable function of $\mathbf{w}$ for all $s\in\mathcal{S}$
 		\item As SGD works in an iterative fashion we will make use of the underscript $t$ denoting $\mathbf{w}_t$
 	\end{itemize}
 \end{frame}
@@ -285,11 +285,11 @@
 	\end{itemize}
 
 	\begin{block}{SGD in practice}
-		We wish to \textcolor{RoyalBlue}{minimize} the estimates made by $V(s;\mathbf{w})$ with respect to $V^{\pi}(s)$:
+		We wish to \textcolor{RoyalBlue}{minimize} the estimates made by $\hat{V}(s;\mathbf{w})$ with respect to $V^{\pi}(s)$:
 		
 		\begin{align*}
-			\mathbf{w}_{t+1} & \doteq \mathbf{w}_t - \frac{1}{2} \alpha\nabla\Big[V^{\pi}(s_t)-V(s;\mathbf{w}_t)\Big]^{2} \\ 
-					 & = \mathbf{w}_t +\alpha\Big[V^{\pi}(s_t)-V(s_t;\mathbf{w}_t)\Big]\nabla V(s;\mathbf{w}_t)
+			\mathbf{w}_{t+1} & \doteq \mathbf{w}_t - \frac{1}{2} \alpha\nabla\Big[V^{\pi}(s_t)-\hat{V}(s;\mathbf{w}_t)\Big]^{2} \\ 
+					 & = \mathbf{w}_t +\alpha\Big[V^{\pi}(s_t)-\hat{V}(s_t;\mathbf{w}_t)\Big]\nabla \hat{V}(s;\mathbf{w}_t)
 		\end{align*}
 
 		where $\alpha$ is the step-size and $\nabla f(\mathbf{w})$ is the vector containing all partial derivatives wrt to the components of $\mathbf{w}$:
@@ -310,12 +310,12 @@
 
 	\bigskip 
 
-	Let's see how to learn the state-action value function $Q(s,a;\mathbf{w})$
+	Let's see how to learn the state-action value function $\hat{Q}(s,a;\mathbf{w})$
 
 \end{frame}
 
 \begin{frame}{Linear Functions}
-	We follow the same steps that we have used beforehand for learning $V(s;\mathbf{w})$:
+	We follow the same steps that we have used beforehand for learning $\hat{V}(s;\mathbf{w})$:
 	\begin{enumerate}
 		\item We take a model-free Reinforcement Learning algorithm of our choice
 		\item We construct an objective function we wish to minimize 
@@ -653,7 +653,7 @@
 			\item How to deal with MDPs where the the state space $|\mathcal{S}|$ and the action space $|\mathcal{A}|$ are large
 			\item Why it is desirable to introduce function approximators into the Reinforcement Learning loop
 			\item Linear vs non-linear functions
-			\item Connectionist VS Deep Reinforcement Learning
+			\item Connectionist vs Deep Reinforcement Learning
 			\item Deep-Q Networks
 		\end{itemize}
 	\end{takeaway}

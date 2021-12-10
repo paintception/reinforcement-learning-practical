@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.5)  8 DEC 2021 14:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.10.5)  10 DEC 2021 16:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1607,7 +1607,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  34886 strings out of 482543
  832975 string characters out of 5955241
- 1232170 words of memory out of 5000000
+ 1233170 words of memory out of 5000000
  49058 multiletter control sequences out of 15000+600000
  547712 words of font info for 84 fonts, out of 8000000 for 9000
  497 hyphenation exceptions out of 8191
@@ -1634,7 +1634,7 @@ blic/hfbright/hfbrsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hf
 bright/hfbrsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/h
 fbrsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/hfbright/hftl10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on lecture05.pdf (38 pages, 1316767 bytes).
+Output written on lecture05.pdf (38 pages, 1316954 bytes).
 PDF statistics:
  393 PDF objects out of 1000 (max. 8388607)
  289 compressed objects within 3 object streams
