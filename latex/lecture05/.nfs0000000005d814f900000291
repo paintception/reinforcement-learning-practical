@@ -14,9 +14,6 @@
 \usepackage{cmbright}
 \usepackage{framed}
 \usepackage{tabularx}
-\usepackage{amssymb}
-\usepackage{pifont}
-
 
 \usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
 \usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
@@ -29,7 +26,7 @@
 \usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
 \usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
 
-\newcommand{\xmark}{\ding{55}}
+
 
 \DeclareMathOperator*{\argmax}{arg\,max}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
@@ -67,17 +64,6 @@
 
 \begin{frame}{Recap}
 
-	Last week we have seen ...
-	\begin{block}{Model-Free Reinforcement Learning}
-		\begin{itemize}
-			\item How to construct algorithms when parts of the MDP $\mathcal{M}$ are unknown
-			\item Monte-Carlo (MC) Learning
-			\item Temporal-Difference (TD) Learning
-			\item The concept of bootstrapping
-			\item How to learn $Q^{\pi}(s,a)$ in an \textit{on-policy} fashion or in an \textit{off-policy} fashion
-		\end{itemize}
-	\end{block}
-
 \end{frame}
 
 
@@ -98,7 +84,6 @@
 	\begin{enumerate}
 		\item Unfeasible when the state-action space is large
 		\item Impossible to use in a continous setting
-		\item Requires a discretization of the environment
 		\item Lacks generalization
 	\end{enumerate}
 
@@ -175,14 +160,14 @@
 	\begin{itemize}
 		\item All states look very \textcolor{RoyalBlue}{similar} among each other
 		\item Small portions of the state-space are actually \textcolor{RoyalBlue}{informative}
-		\item Despite some pre-processing operations the state-space stays \textcolor{RoyalBlue}{highly dimensional}
+		\item Despite some pre-proessing operations the state-space stays \textcolor{RoyalBlue}{highly dimensional}
 	\end{itemize}
 
 \end{frame}
 
 
 \begin{frame}{Function Approximation}
-	Fortunately we can \textcolor{RoyalBlue}{overcome} the aforementioned \textcolor{Maroon}{issues} by including a function approximator in the reinforcement learning cooking recipe!
+	Fortunately we can \textcolor{RoyalBlue}{overcome} the aforementioned \textcolor{Maroon}{issues} by including a function approximator in the reinforcement learning cooking recipe
 	\begin{block}{Function Approximators}
 		We \textcolor{Maroon}{do not} represent a value function as a table anymore, but rather with a \textcolor{RoyalBlue}{parametrized functional form} with weight vector $\mathbf{w}\in\mathds{R}^{d}$.
 
@@ -197,7 +182,7 @@
 
 \begin{frame}{Function Approximation}
 
-	We will see that $V(s;\mathbf{w})$ can come in numerous forms but the \textcolor{Maroon}{key} ideas behind using a function approximator are always the same:
+	We will see that $V(s;\mathbf{w})$ can come in numerous forms but the \textcolor{Maroon}{key} ideas behind using a function approximator are the same:
 	\begin{enumerate}
 		\item We want to \textcolor{RoyalBlue}{overcome} the computational burdens that come from large state $|\mathcal{S}|$ and action $|\mathcal{A}|$ spaces
 		\item We wish to \textcolor{RoyalBlue}{represent} states through informative features
@@ -205,6 +190,7 @@
 	\end{enumerate}
 
 	\bigskip
+
 
 	$\Rightarrow$ Now that we have built some intuition around why function approximation is useful let us dive deeper into this family of techniques ...
 
@@ -319,15 +305,15 @@
 	\begin{enumerate}
 		\item We take a model-free Reinforcement Learning algorithm of our choice
 		\item We construct an objective function we wish to minimize 
-		\item Perform gradient descent on the parameter vector $\mathbf{w}$
+		\item Perform Gradient Descent on the parameter vector $\mathbf{w}$
 	\end{enumerate}
 
 
 	\begin{block}{Q-Learning with function approximation}	
 		\begin{align*}
-			\uncover<+-> {Q(s_t,a_t) & :=Q(s_t,a_t) + \alpha\big[\underbrace{r_t + \gamma \:\underset{a\in \mathcal{A}}{\max}\:Q(s_{t+1},a_t)}_{y_t} - Q(s_t, a_t) \big].} \\
-				\uncover<+-> {\mathcal{L} & = \frac{1}{2}\Big(y_t - Q(s_t, a_t)\Big)^2} \\
-				\uncover<+-> {\frac{\partial \mathcal{L}}{\partial \mathbf{w}} & = - \Big(y_t -Q(s_t, a_t)\Big)\mathbf{x}(s_t)}
+			& \uncover<+-> {Q(s_t,a_t):=Q(s_t,a_t) + \alpha\big[\underbrace{r_t + \gamma \:\underset{a\in \mathcal{A}}{\max}\:Q(s_{t+1},a_t)}_{y_t} - Q(s_t, a_t) \big].} \\
+				& \uncover<+-> {\mathcal{L} = \frac{1}{2}\Big(y_t - Q(s_t, a_t)\Big)^2} \\
+				%& \uncover<+-> \frac{a}{b} = - \Big(y_t -Q(s_t, a_t)\Big)\mathbf{x}(s_t)
 		\end{align*}
 
 	\end{block}
@@ -380,7 +366,7 @@
 	Before AlphaGo and AlphaZero there was \textcolor{RoyalBlue}{TD-Gammon}:
 	\begin{enumerate}
 		\item The first computer program of mastering a boardgame  
-		\item The first successful combination of Reinforcement Learning and neural networks
+		\item The first succesfull combination of Reinforcement Learning and neural networks
 		\item The first practical application of TD-Learning
 	\end{enumerate}
 
@@ -627,36 +613,21 @@
 
 \begin{frame}{Neural Networks}
 
-	$\Rightarrow$ The Experience Replay memory buffer plays a \textcolor{Maroon}{crucial role} in DRL: without it, it would be impossible to train an agent
-
-	\bigskip
+	The Experience Replay memory buffer plays a \textcolor{Maroon}{crucial role} in DRL: without it, it would be impossible to train an agent
 
 	\begin{enumerate}
-		\item It makes agents more \textcolor{RoyalBlue}{sample efficient} $\textcolor{green}{\checkmark}$
-		\item Helps \textcolor{RoyalBlue}{generalization} $\textcolor{green}{\checkmark}$ 
-		\item Goes against the principle of online learning \textcolor{red}{\xmark}
-		\item Reinforcement learning $\rightarrow$ Supervised learning \textcolor{red}{\xmark}
+		\item It makes agents more \textcolor{RoyalBlue}{sample efficient} $\textcolor{green}{\mark}$
+		\item i 
 	\end{enumerate}
 
-	\bigskip 
-
-	Is only one among the many "tricks" that are necessary if we want to successfully combine Reinforcement Learning algorithms with deep neural networks.
 
 \end{frame}
 
 
 
 
-\begin{frame}{Final Slide!}
-	\begin{takeaway}{Lecture Takeaway}
-		\begin{itemize}
-			\item How to deal with MDPs where the the state space $|\mathcal{S}|$ and the action space $|\mathcal{A}|$ are large
-			\item Why it is desirable to introduce function approximators into the Reinforcement Learning loop
-			\item Linear vs non-linear functions
-			\item Connectionist VS Deep Reinforcement Learning
-			\item Deep-Q Networks
-		\end{itemize}
-	\end{takeaway}
+\begin{frame}{Neural Networks}
+	\textcolor{Maroon}{Why} are Convolutional Neural Networks so powerful?
 \end{frame}
 
 %============================================================================
