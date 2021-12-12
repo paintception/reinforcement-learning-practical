@@ -263,7 +263,7 @@
 
 \begin{frame}{Linear Functions}
 	\begin{center}
-		We use \textcolor{RoyalBlue}{Stochastic Gradient Descent} (SGD):
+		We use \textcolor{RoyalBlue}{Gradient Descent} (GD):
 	\end{center}
 	
 	\bigskip
@@ -271,7 +271,7 @@
 	\begin{itemize}
 		\item We have a weight vector $\mathbf{w}\doteq(w_1, w_2, ..., w_d)$ of real values parametrizing our function approximator
 		\item The approximate value function $\approx \hat{V}^{\pi}(s;\mathbf{w})$ is a differentiable function of $\mathbf{w}$ for all $s\in\mathcal{S}$
-		\item As SGD works in an iterative fashion we will make use of the underscript $t$ denoting $\mathbf{w}_t$
+		\item As GD works in an iterative fashion we will make use of the underscript $t$ denoting $\mathbf{w}_t$
 	\end{itemize}
 \end{frame}
 
@@ -284,7 +284,7 @@
 		\item We know the \textcolor{RoyalBlue}{true value} of a state under policy $\pi$
 	\end{itemize}
 
-	\begin{block}{SGD in practice}
+	\begin{block}{GD in practice}
 		We wish to \textcolor{RoyalBlue}{minimize} the estimates made by $\hat{V}(s;\mathbf{w})$ with respect to $V^{\pi}(s)$:
 		
 		\begin{align*}
