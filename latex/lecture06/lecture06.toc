@@ -1,0 +1,5 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Policy Gradient Methods}{4}{0}{1}
+\beamer@sectionintoc {2}{Beyond Model-Free Learning}{13}{0}{2}
+\beamer@sectionintoc {3}{Beyond Online Learning}{19}{0}{3}
+\beamer@sectionintoc {4}{Beyond Markov Decision Processes}{25}{0}{4}

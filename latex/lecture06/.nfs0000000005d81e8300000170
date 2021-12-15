@@ -1,0 +1,143 @@
+\documentclass{beamer}
+
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{xmpmulti}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{eucal}
+\usetikzlibrary{positioning,angles,quotes}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{cmbright}
+\usepackage{framed}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage{pifont}
+
+
+\usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
+\usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}
+
+%\input{epgfplotslibrary{groupplots}
+\usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
+\usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
+
+\newcommand{\xmark}{\ding{55}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+\definecolor{Maroon}{cmyk}{0, 0.87, 0.68, 0.32}
+\definecolor{RoyalBlue}{cmyk}{1, 0.50, 0, 0}
+\definecolor{skymagenta}{rgb}{0.81, 0.44, 0.69}
+
+\newenvironment{takeaway}[1]{%
+	\definecolor{shadecolor}{gray}{0.9}%
+		\begin{shaded}{\color{skymagenta}\noindent\textsc{#1}}\\%
+		}{%
+		\end{shaded}%
+}
+
+
+
+%%%%%% THE FOLLOWING FILE CONTAINS THE STYLE DEFINITIONS %%%%%%
+\input{header.tex}
+%%%%%%
+
+%%%%%% TITLE, AUTHOR, DATE DEFINITIONS %%%%%%
+\title{Beyond Model-Free Reinforcement Learning}
+	\subtitle{Solving Optimal Decision Making Problems from a Different Perspective}
+\author{Matthia Sabatelli}
+
+\date{\today}
+%%%%%%
+
+\setbeamertemplate{footline}[frame number]{}
+
+\begin{document}
+
+\frame{\titlepage} 
+
+\begin{frame}{Recap}
+
+	Last week we have seen ...
+	\begin{block}{Model-Free Reinforcement Learning}
+		\begin{itemize}
+			\item How to construct algorithms when parts of the MDP $\mathcal{M}$ are unknown
+			\item Monte-Carlo (MC) Learning
+			\item Temporal-Difference (TD) Learning
+			\item The concept of bootstrapping
+			\item How to learn $Q^{\pi}(s,a)$ in an \textit{on-policy} fashion or in an \textit{off-policy} fashion
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+
+
+\frame{\frametitle{Today's Agenda}\tableofcontents}
+
+
+\begin{frame}{Value-Based Methods}
+	Throughout this course we have constantly seen how important \textcolor{RoyalBlue}{value functions} are:
+	\begin{itemize}
+		\item They correspond to the knowledge of the agent
+		\item They help us understanding the environment
+		\item But most importantly they define the policy $\pi$ that the agent follows
+	\end{itemize}
+
+	\bigskip
+
+	$\Rightarrow$ The most \textcolor{skymagenta}{powerful} value function is the state-action value function $Q(s,a)$ since:
+	\begin{align*}
+		\pi^{*}(s) = \underset{a\in\mathcal{A}}{\argmax} \ Q^{*}(s,a) \ \text{for all} \ s \in \mathcal{S}
+	\end{align*}
+
+\end{frame}
+
+
+
+\begin{frame}{Value-Based Methods}
+	Our \textcolor{RoyalBlue}{goal} so far has always been that of learning $Q(s,a)$:
+	\begin{enumerate}
+		\item We can do this in a tabular fashion 
+		\item Or we can generalize this process with a function approximator
+		\item We can do this in an \textit{on-policy} or \textit{off-policy} fashion
+	\end{enumerate}
+
+	\biskip
+
+	$\Rightarrow$ \textcolor{RoyalBlue}{First} we learn a value function, and \textcolor{skymagenta}{then} we derive the policy $\pi$
+	$\Rightarrow$ We have \textcolor{Maroon}{never} seen how to learn $\pi$ directly!
+	
+\end{frame}
+
+
+
+\begin{frame}{Beyond Value-Based Learning}
+	\section{Beyond Value-Based Learning}
+
+\end{frame}
+
+
+\begin{frame}{Beyond Online Learning}
+	\section{Beyond Online Learning}
+\end{frame}
+
+\begin{frame}{Beyond Markov Decision Processes}
+	\section{Beyond Markov Decision Processes}
+\end{frame}
+
+
+
+
+
+%============================================================================
+\end{document}

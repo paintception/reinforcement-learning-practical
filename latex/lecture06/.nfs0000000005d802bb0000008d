@@ -1,0 +1,295 @@
+\documentclass{beamer}
+
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{xmpmulti}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{eucal}
+\usetikzlibrary{positioning,angles,quotes}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{cmbright}
+\usepackage{framed}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage{pifont}
+
+\usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
+\usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}
+
+%\input{epgfplotslibrary{groupplots}
+\usetikzlibrary{pgfplots.groupplots,arrows.meta,shadows,positioning,angles,quotes}
+\usetikzlibrary{matrix,chains,positioning,decorations.pathreplacing,arrows}
+
+\newcommand{\xmark}{\ding{55}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+\definecolor{Maroon}{cmyk}{0, 0.87, 0.68, 0.32}
+\definecolor{RoyalBlue}{cmyk}{1, 0.50, 0, 0}
+\definecolor{skymagenta}{rgb}{0.81, 0.44, 0.69}
+
+\newenvironment{takeaway}[1]{%
+	\definecolor{shadecolor}{gray}{0.9}%
+		\begin{shaded}{\color{skymagenta}\noindent\textsc{#1}}\\%
+		}{%
+		\end{shaded}%
+}
+
+
+
+%%%%%% THE FOLLOWING FILE CONTAINS THE STYLE DEFINITIONS %%%%%%
+\input{header.tex}
+%%%%%%
+
+%%%%%% TITLE, AUTHOR, DATE DEFINITIONS %%%%%%
+\title{Beyond Model-Free Reinforcement Learning}
+	\subtitle{Solving Optimal Decision Making Problems from a Different Perspective}
+\author{Matthia Sabatelli}
+
+\date{\today}
+%%%%%%
+
+\setbeamertemplate{footline}[frame number]{}
+
+\begin{document}
+
+\frame{\titlepage} 
+
+\begin{frame}{Recap}
+
+	Last week we have seen ...
+	\begin{block}{Model-Free Reinforcement Learning}
+		\begin{itemize}
+			\item How to construct algorithms when parts of the MDP $\mathcal{M}$ are unknown
+			\item Monte-Carlo (MC) Learning
+			\item Temporal-Difference (TD) Learning
+			\item The concept of bootstrapping
+			\item How to learn $Q^{\pi}(s,a)$ in an \textit{on-policy} fashion or in an \textit{off-policy} fashion
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+
+
+\frame{\frametitle{Today's Agenda}\tableofcontents}
+
+
+\begin{frame}{Policy Gradient Methods}
+	\section{Beyond Learning a Value Function}
+	Throughout this course we have constantly seen how important \textcolor{RoyalBlue}{value functions} are:
+	\begin{itemize}
+		\item They correspond to the knowledge of the agent
+		\item They help us understanding the environment
+		\item But most importantly they define the policy $\pi$ that the agent follows
+	\end{itemize}
+
+	\bigskip
+
+	$\Rightarrow$ The most \textcolor{skymagenta}{powerful} value function is the state-action value function $Q(s,a)$ since:
+	\begin{align*}
+		\pi^{*}(s) = \underset{a\in\mathcal{A}}{\argmax} \ Q^{*}(s,a) \ \text{for all} \ s \in \mathcal{S}
+	\end{align*}
+
+\end{frame}
+
+
+
+\begin{frame}{Policy Gradient Methods}
+	Our \textcolor{RoyalBlue}{goal} so far has always been that of learning $Q(s,a)$:
+	\begin{enumerate}
+		\item We can do this in a tabular fashion 
+		\item Or we can generalize this process with a function approximator
+		\item We can do this in an \textit{on-policy} or \textit{off-policy} fashion
+	\end{enumerate}
+
+	\bigskip
+
+	$\Rightarrow$ \textcolor{RoyalBlue}{First} we learn a value function, and \textcolor{skymagenta}{then} we derive the policy $\pi$
+	
+	\bigskip
+	
+	$\Rightarrow$ We have \textcolor{Maroon}{never} seen how to learn $\pi$ directly!
+	
+\end{frame}
+
+
+\begin{frame}{Policy Gradient Methods}
+	Action value based methods such as Q-Learning, SARSA and $\text{QV}(\lambda)$ are very powerful algorithms but have some important \textcolor{Maroon}{limitations}:
+	\begin{enumerate}
+		\item Are restricted to discrete action spaces 
+		\item Work alongside carefully designed exploration-exploitation strategies
+		\item Are unable to learn an optimal policy which is stochastic 
+		\item Sometimes learning $\pi(a|s;\theta)$ is easier than learning $Q(s,a;\theta)$
+	\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Policy Gradient Methods}
+	There is a family of techniques which tries to learn $\pi(a|s;\theta)$ directly:
+	\begin{center}
+		\textcolor{skymagenta}{\textbf{Policy Gradient Methods}}
+	\end{center}
+
+	\bigskip
+
+	$\Rightarrow$ They learn a \textcolor{RoyalBlue}{parametrized policy} that learns how to select actions without having to consult a value function:
+	\begin{align*}
+		\pi(a|s;\theta)=\text{Pr}\:\{a_t = a, s_t=s\:;\theta_t=\theta\}
+	\end{align*}
+
+	\bigskip 
+
+	The parameters $\theta$ usually correspond to the weights of a neural network
+
+\end{frame}
+
+\begin{frame}{Policy Gradient Methods}
+	Training policy gradient methods significantly differs from training a Deep-Q Network:
+	
+	\bigskip
+
+	$\Rightarrow$ The idea of last week's methods was that of \textcolor{Maroon}{minimizing} a certain quantity called the TD-error:
+	\begin{align*}
+		\mathcal{L}(\theta) = \mathds{E}_{\langle \cdot \rangle\sim U(D)} \bigg[\big(r_{t} + \gamma \: \underset{a\in \mathcal{A}}{\max}\: Q(s_{t+1}, a; \theta^{-}) - Q(s_{t}, a_{t}; \theta)\big)^{2}\bigg]
+	\end{align*}
+
+	
+	\bigskip
+
+	$\Rightarrow$ Policy Gradient methods instead seek to \textcolor{Maroon}{maximize} some scalar performance measure $J(\theta)$ and update the parameters via gradient ascent!
+	\begin{align*}
+		\theta_{t+1} = \theta + \alpha \widehat{\nabla J(\theta_t)}
+	\end{align*}
+
+\end{frame}
+
+
+\begin{frame}{Policy Gradient Methods}
+	It is also possible to learn $\pi(a|s;\theta)$ in \textcolor{RoyalBlue}{combination} with a value function!
+
+	\bigskip
+
+	$\Rightarrow$ These algorithms come with the name of \textcolor{skymagenta}{\textbf{Actor-Critic}} methods:
+	\begin{itemize}
+		\item It can be hard to learn a policy $\pi$ directly
+		\item We would like to tell our agent learning who is learning $\pi$ how good its policy is 
+		\item To do so we can use the state-value function $V^{\pi}(s)$
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Policy Gradient Methods}
+	How do Actor-Critic methods intuitively work?
+		\begin{center}
+			\begin{figure}
+			\includegraphics[width=\textwidth]{./Images/a2c}
+			\caption{Image courtesy of Van de Wolfshaar (2017)}
+			\end{figure}
+		\end{center}
+\end{frame}
+
+
+\begin{frame}{Policy Gradient Methods}
+	How do we train this network?
+
+	\begin{align*}
+		\theta_{t+1} & = \theta + \alpha \Big(r_t+\gamma V(s_{t+1};\phi)-V(s_t;\phi)\Big) \frac{\nabla\pi(a_t|s_t;\theta_t)}{\pi(a_t|s_t;\theta_t)} \\ 
+			& = \theta_t + \alpha \delta_t \frac{\nabla\pi(a_t|s_t;\theta_t)}{\pi(a_t|s_t;\theta_t)} 
+	\end{align*}
+
+	\bigskip 
+
+	$\Rightarrow$ Note that a value function ($\phi$) \textcolor{RoyalBlue}{helps} learning the policy parameters $\theta$ but is \textcolor{Maroon}{not required}
+	for action selection purposes.
+\end{frame}
+
+
+\begin{frame}{Policy Gradient Methods}
+
+	$\Rightarrow$ Nowadays actor-critic algorithms have become \textcolor{skymagenta}{very popular} in Deep Reinforcement Learning:
+	\begin{enumerate}
+		\item They are \textcolor{RoyalBlue}{theoretically motivated} thanks to the \textit{policy gradient theorem} (see page 325 of the book)
+		\item The critic can technically learn \textcolor{RoyalBlue}{any value function}
+		\item Can be massively parallelized (see A3C algorithm)
+	\end{enumerate}
+
+	\bigskip
+
+	$\Rightarrow$ However, compared to action-value based methods, actor-critic algorithms are \textcolor{Maroon}{less well understood} (maybe because learning a policy $\pi$ is still more complex than learning a value function?) 
+
+\end{frame}
+
+
+
+\begin{frame}{Beyond Model-Free Learning}
+	\section{Beyond Model-Free Learning}
+
+	$\Rightarrow$ Actor-Critic algorithms, just like action value based methods are also \textcolor{RoyalBlue}{model-free} Reinforcement Learning algorithms.
+	As a result we have never even attempted learning the transition function $\mathcal{P}$ of the Markov Decision Process $\mathcal{M}$.
+
+	\bigskip
+
+	\begin{itemize}
+		\item Recall that the $\mathcal{P}$ and $\Re$ components of $\mathcal{M}$ are usually called the \textcolor{RoyalBlue}{model} of the environment
+		\item If they are known we can use Dynamic Programming algorithms like \textcolor{RoyalBlue}{value iteration} :)
+		\item However, in the typical Reinforcement Learning scenario this is \textcolor{Maroon}{never} the case :(
+	\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}{Beyond Model-Free Learning}
+	What to do?
+
+	\begin{itemize}
+		\item In Model-Based Reinforcement Learning the goal is to \textcolor{RoyalBlue}{learn the model} of the environment through experience!
+		\item The \textcolor{skymagenta}{idea} is to learn a function that comes in the following form: $f(s_t,a_t) = s_{t+1}$
+		\item If learned $f$ would give us $p(s_{t+1}|s_t,a_t)$
+		\item We can do somethinf similar for learning $p(r_t|a_t,s_t)$
+	\end{itemize}
+	
+	\bigskip
+	
+	$\Rightarrow$ The task of learning a model of the environment corresponds to a \textcolor{RoyalBlue}{supervised learning} problem!
+
+\end{frame}
+
+\begin{frame}{Beyond Model-Free Learning}
+	$\Rightarrow$ The overall learning strategy is very \textcolor{simple}:
+	\begin{enumerate}
+		\item We start with a random policy $\pi(a_t|s_t)$
+		\item This policy results in a dataset of trajectories $\mathcal{D}=\{(s, a, s^{\prime})_i\}$
+		\item We learn the dynamics of the model by minimizing $\sum_i ||f(s_i, a_i) - s_i^{\prime}||^{2}$
+		\item Plan through the model and go back to step 2.
+	\end{enumerate}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Beyond Online Learning}
+	\section{Beyond Online Learning}
+\end{frame}
+
+\begin{frame}{Beyond Markov Decision Processes}
+	\section{Beyond Markov Decision Processes}
+\end{frame}
+
+
+
+
+
+%============================================================================
+\end{document}
