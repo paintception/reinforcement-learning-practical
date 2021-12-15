@@ -4,8 +4,7 @@
 Lectures for Reinforcement Learning Practical, University of Groningen, Semester Ib.
 
 - Coordinator: Matthia Sabatelli
-- Lecturers:  Matthia Sabatelli ([m.sabatelli@rug.nl](mailto:m.sabatelli@rug.nl)) and Nicole Orzan ([n.orzan@rug.nl](mailto:n.orzan@rug.nl))
-- Teaching Assistant: Henry Maathuis ([h.maathuis@rug.nl](mailto:h.maathuis@rug.nl))  
+- Lecturers:  Matthia Sabatelli ([m.sabatelli@rug.nl](mailto:m.sabatelli@rug.nl)), Nicole Orzan ([n.orzan@rug.nl](mailto:n.orzan@rug.nl)) and Henry Maathuis ([h.maathuis@rug.nl](mailto:h.maathuis@rug.nl))  
 - Period: Semester Ib 
 - When: Monday 9:00-11:00 AM (theoretical lectures) and Monday 15:00-17:00 (Computer Lab)
 
@@ -31,7 +30,7 @@ Lectures for Reinforcement Learning Practical, University of Groningen, Semester
 Students should handle in the following three deliverables:	
 
 - Assignment 1: one coding assignment related to lecture 2. [pdf](assignments/assignment01/assignment01.pdf) 
-- Assignment 2: one mathematical assignment related to lectures 3 and 4. [pdf](assignments/assignment02/assignment02.pdf)
+- Assignment 2: one mathematical assignment related to lectures 3 and 4. [pdf](assignments/assignment02/Assignment02_corrected.pdf)
 - Final Project: a reinforcement learning project of the student's choice 
 
 Students are allowed to work alone or in groups of a maximum of **two** people.
