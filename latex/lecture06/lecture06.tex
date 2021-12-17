@@ -69,11 +69,11 @@
 	Last week we have seen ...
 	\begin{block}{Model-Free Reinforcement Learning}
 		\begin{itemize}
-			\item How to construct algorithms when parts of the MDP $\mathcal{M}$ are unknown
-			\item Monte-Carlo (MC) Learning
-			\item Temporal-Difference (TD) Learning
-			\item The concept of bootstrapping
-			\item How to learn $Q^{\pi}(s,a)$ in an \textit{on-policy} fashion or in an \textit{off-policy} fashion
+			\item How to construct algorithms when the state $|\mathcal{S}|$ and action spaces $|\mathcal{A}|$ are large
+			\item Function Approximators
+			\item Linear and Non-Linear Functions
+			\item Deep Reinforcement Learning
+			\item Experience Replay $D=\langle s_t, a_t, r_t, s_{t+1}\rangle$
 		\end{itemize}
 	\end{block}
 
@@ -403,7 +403,86 @@
 
 \begin{frame}{Beyond Markov Decision Processes}
 	\section{Beyond Markov Decision Processes}
+
+	We have always modeled the \textcolor{RoyalBlue}{environment} as a Markov Decision Process:
+	\begin{center}
+		$\mathcal{M}\langle \mathcal{S}, \mathcal{A}, \mathcal{P}, r \rangle$
+	\end{center}
+
+	and assumed that the entire state space $\mathcal{S}$ is \textcolor{skymagenta}{visible} to the agent.
+
+	\begin{center}
+		\begin{figure}
+			\includegraphics[width=4cm]{./Images/chess}
+		\end{figure}
+	\end{center}
 \end{frame}
+
+\begin{frame}{Beyond Markov Decision Processes}
+	$\Rightarrow$ However there are many practical applications where it is \textcolor{Maroon}{impossible} for an agent to observe some states of the environment
+
+	\begin{center}
+		\begin{figure}
+			\includegraphics[width=5cm]{./Images/poker}
+		\end{figure}
+	\end{center}
+
+	\bigskip
+
+	How do we \textcolor{RoyalBlue}{formalize} such an environment?
+\end{frame}
+
+\begin{frame}{Beyond Markov Decision Processes}
+	$\Rightarrow$ We \textcolor{skymagenta}{generalize} the concept of a MDP to a setting where once we have taken action $a_t$ we either can, or \textcolor{Maroon}{cannot} observe $s_{t+1}$: Partially Observable Markov Decision Process (POMDP)
+
+	\begin{center}
+		$\mathcal{M}\langle \mathcal{S}, \mathcal{A}, \mathcal{P}, r, \Omega, \mathcal{O}, \gamma \rangle$
+	\end{center}
+
+	%\bigskip
+
+	We add two new components to the MDP:
+	\begin{enumerate}
+		\item $\Omega$ is a set of observations
+		\item $\mathcal{O}$ are the conditional observation probabilities
+	\end{enumerate}
+
+	$\Omega$ gives us a \textcolor{RoyalBlue}{hint} about the state the agent is visiting, but not the true state itself!
+
+\end{frame}
+
+\begin{frame}{Beyond Markov Decision Processes}
+	
+	When dealing with a POMDP an agent deals with the \textcolor{RoyalBlue}{uncertainty} of the state space $\mathcal{S}$ by mantaining a \textcolor{RoyalBlue}{belief} $b$ over the visited states:
+	\begin{itemize}
+		\item $b$ represents a probabilty distribution $\mathcal{P}(\mathcal{S})$
+		\item $b(s)$ denotes the probability $P(\mathcal{S}=s)$ under the current belief state
+		\item Throughout interaction with the environment $b$ is updated
+	\end{itemize}
+
+	\bigskip
+
+	$\Rightarrow$ The \textcolor{skymagenta}{goal} becomes to learn $\pi^{*}(b)$
+
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\textcolor{skymagenta}{\textbf{The End !}}
+	\end{center}
+\end{frame}
+
+\begin{frame}{In Memoriam: Marco A. Wiering (1971-2021)}
+	\begin{center}
+		\begin{figure}
+			\includegraphics[width=5cm]{./Images/marco}
+		\end{figure}
+	\end{center}
+
+
+\end{frame}
+
+
 
 
 %============================================================================
