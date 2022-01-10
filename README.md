@@ -20,7 +20,7 @@ Lectures for Reinforcement Learning Practical, University of Groningen, Semester
 | December&nbsp;6 | Lecture 4: Model-Free Reinforcement Learning (Matthia Sabatelli): [slides](pdf/lecture04.pdf) |
 | December&nbsp;13 | Lecture 5: Function Approximators (Matthia Sabatelli): [slides](pdf/lecture05.pdf) |
 | December&nbsp;20 | Lecture 6: Beyond Model-Free Reinforcement Learning (Matthia Sabatelli): [slides](pdf/lecture06.pdf) |
-| January&nbsp;10 | Lecture 7: *What it means to do research in Reinforcement Learning* (Henry Maathuis & Nicole Orzan): [slides]() |
+| January&nbsp;10 | Lecture 7: ~~What it means to do research in Reinforcement Learning (Henry Maathuis & Nicole Orzan)~~ _(Cancelled)_ |
 | January&nbsp;17 | Student Presentations 1 |
 | January&nbsp;19 | Student Presentations 2 |
 
